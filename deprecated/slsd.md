@@ -7,7 +7,6 @@ date: 2023-12-6
 venue: 'EMNLP'
 paperurl: 'https://aclanthology.org/2023.emnlp-main.878.pdf'
 citation: '
-```
 @inproceedings{liao2023self,
   title={Self-Improvement of Non-autoregressive Model via Sequence-Level Distillation},
   author={Liao, Yusheng and Jiang, Shuyang and Li, Yiqi and Wang, Yu and Wang, Yanfeng},
@@ -15,7 +14,6 @@ citation: '
   pages={14202--14212},
   year={2023}
 }
-```
 '
 ---
 
