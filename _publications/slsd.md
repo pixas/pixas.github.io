@@ -3,7 +3,7 @@ title: "Self-Improvement of Non-autoregressive Model via Sequence-Level Distilla
 collection: publications
 permalink: /publication/slsd
 excerpt: 'SLSD self-distilled outputs of non-autoregressive models to mitigate the multi-modality problems of non-autoregressive machine translation'
-date: 2023-12
+date: 2023-12-6
 venue: 'EMNLP'
 paperurl: 'https://aclanthology.org/2023.emnlp-main.878.pdf'
 citation: '
