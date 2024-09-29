@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "zh-CN"
-title                    : "Shuyang Jiang / SJTU & FDU"
+title                    : "Shuyang Jiang / AI Lab & FDU"
 title_separator          : "-"
 name                     : &name "Your Name"
 description              : &description "personal description"
