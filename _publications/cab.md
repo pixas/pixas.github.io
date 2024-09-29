@@ -8,7 +8,7 @@ venue: 'ICML'
 paperurl: 'https://proceedings.mlr.press/v202/zhang23r/zhang23r.pdf'
 citation: '
 @InProceedings{pmlr-v202-zhang23r,
-  title = 	 {{CAB}: Comprehensive Attention Benchmarking on Long Sequence Modeling},
+  title = 	 {CAB: Comprehensive Attention Benchmarking on Long Sequence Modeling},
   author =       {Zhang, Jun and Jiang, Shuyang and Feng, Jiangtao and Zheng, Lin and Kong, Lingpeng},
   booktitle = 	 {Proceedings of the 40th International Conference on Machine Learning},
   pages = 	 {41194--41218},
