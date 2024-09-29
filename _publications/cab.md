@@ -3,7 +3,7 @@ title: "CAB: Comprehensive Attention Benchmarking on Long Sequence Modeling"
 collection: publications
 permalink: /publication/cab
 excerpt: 'CAB aims to provide a comprehensive evaluation of efficient attentions. CAB contains seven real-world tasks from different research areas to evaluate efficient attentions under four fine-grained attention patterns.'
-date: 2022-11-18
+date: 2023-7-3
 venue: 'ICML'
 paperurl: 'https://proceedings.mlr.press/v202/zhang23r/zhang23r.pdf'
 citation: '
@@ -25,7 +25,7 @@ citation: '
 ---
 
 
-[Download paper here](https://arxiv.org/pdf/2210.07661.pdf)
+[Download paper here](https://proceedings.mlr.press/v202/zhang23r/zhang23r.pdf)
 
 Recommended citation:   
 ```bibtex
