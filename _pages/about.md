@@ -180,6 +180,6 @@ REDUCTION[J].
 
 <span class='anchor' id='-gzsx'></span>
 
-# 💻 Work & Intern
+# 💻 Internships
 - *2022.01 - 2023.04*, Shanghai Artificial Intelligence Laboratory, Intern Researcher
 
