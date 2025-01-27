@@ -35,7 +35,7 @@ I am fortunate to be advised by [Prof. Yu Wang](https://yuwangsjtu.github.io/) a
 
 <span class='anchor' id='-xl'></span>
 
-# 🎓 Eduction
+# 🎓 Eductions
 - *2023.06 - Current*, <a href="https://www.fdu.edu.cn/"><img class="png" src="/images/fdu_logo.png" width="20pt"></a> Fudan University, School of Computer Science, Shanghai, Ph.D.
 - *2019.09 - 2023.06*, <a href="https://www.sjtu.edu.cn/"><img class="png" src="/images/sjtu_logo.png" width="23pt"></a> Shanghai Jiao Tong University, School of Electronic Information and Electrical Engineering, Shanghai, Bachelor Degree
  
