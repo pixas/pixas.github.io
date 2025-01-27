@@ -43,7 +43,7 @@ I am fortunate to be advised by [Prof. Yu Wang](https://yuwangsjtu.github.io/) a
 
 # 📝 Publications
 
-### 英文
+### Highlight
 ---
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2025</div><img src='images/sensors2022.svg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -58,17 +58,17 @@ I am fortunate to be advised by [Prof. Yu Wang](https://yuwangsjtu.github.io/) a
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2024</div><img src='images/sna2021.svg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
--	`Jiang S`, Liao Y, Zhang Y, et al. Taia: Large language models are out-of-distribution data learners[J]. arXiv preprint arXiv:2405.20192, 2024.
-[[Link]](https://arxiv.org/pdf/2405.20192) [[Download]](/pdf/TangJ-2021-A%20novel%20magnetic%20flux%20leakage%20method%20based%20on%20the%20ferromagnetic%20lift-off%20layer.pdf)
+-	`Jiang S*`, Liao Y*, Zhang Y, et al. Taia: Large language models are out-of-distribution data learners[J]. arXiv preprint arXiv:2405.20192, 2024.
+[[Link]](https://arxiv.org/pdf/2405.20192) [[Download]](/pdf/3975_TAIA_Large_Language_Model.pdf)
 
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Int. J. Appl. Electrom. 2020</div><img src='images/ijaem2020.svg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICML 2023</div><img src='images/ijaem2020.svg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
--	`Jian Tang`, Rongbiao Wang, Jikai Zhang, Yihua Kang. The influence of magnetic head’s pose on magnetic flux leakage detection. *International Journal of Applied Electromagnetics and Mechanics*. 2020, 64(1–4): 493–500. (JCR:Q4; IF:0.536)  
-[[网页]](https://dx.doi.org/10.3233/JAE-209356) [[预览]](https://github.com/tangjyan/tangjyan.github.io/blob/main/pdf/TangJ-2020-The%20influence%20of%20magnetic%20head%E2%80%99s%20pose%20on%20magnetic%20flux%20leakage%20detection.pdf) [[下载]](/pdf/TangJ-2020-The%20influence%20of%20magnetic%20head%E2%80%99s%20pose%20on%20magnetic%20flux%20leakage%20detection.pdf)
+-	Zhang J*, `Jiang S*`, Feng J, et al. Cab: comprehensive attention benchmarking on long sequence modeling[C]//International Conference on Machine Learning. PMLR, 2023: 41194-41218. 
+[[Link]](https://proceedings.mlr.press/v202/zhang23r/zhang23r.pdf) [[Download]](/pdf/zhang23r.pdf)
 
 </div>
 </div>
