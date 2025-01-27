@@ -78,7 +78,7 @@ REDUCTION[J].
 <div class='paper-box-text' markdown="1">
 
 -	`Jiang S`, Wang Y, Wang Y. Selfevolve: A code evolution framework via large language models[J]. arXiv preprint arXiv:2306.02907, 2023.    
-[[Link]](https://arxiv.org/pdf/2306.02907) [[Download]](/pdf/selfevolve.pdf) | **Citations: 61**
+[[Link]](https://arxiv.org/pdf/2306.02907) [[Download]](/pdf/selfevolve.pdf) | **Citations: 61**<span class='show_paper_citations' data='slwTiOUAAAAJ:d1gkVwhDpl0C'></span>
 
 </div>
 </div>
