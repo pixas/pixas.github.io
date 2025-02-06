@@ -22,7 +22,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "Shuyang Jiang"
-  avatar           : "images/personal_photo"
+  avatar           : "images/personal_photo.png"
   bio              : "Fudan University"
   location         : "Shanghai"
   employer         : #"Hefei General Machinery Research Institute"
