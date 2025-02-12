@@ -60,11 +60,20 @@ REDUCTION[J].
 </div> -->
 <!-- </div> -->
 
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2025 Spotlight</div><img src='/images/norm.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+-	`Jiang, S.`, Liao, Y., Zhang, Y., Wang, Y., & Wang, Y. (2025). Fine-tuning with Reserved Majority for Noise Reduction. In The Thirteenth International Conference on Learning Representations.
+[[Link]](https://openreview.net/pdf?id=ZV7CLf0RHK) 
+
+</div>
+</div>
+
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Arxiv Preprint</div><img src='/images/meds3.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 -	`Jiang S`, Liao Y, Chen Z, et al. MedS $^ 3$: Towards Medical Small Language Models with Self-Evolved Slow Thinking[J]. arXiv preprint arXiv:2501.12051, 2025.  
-[[Link]](https://arxiv.org/pdf/2501.12051) [[Download]](/pdf/meds3.pdf)
+[[Link]](https://arxiv.org/pdf/2501.12051) 
 
 </div>
 </div>
@@ -72,8 +81,8 @@ REDUCTION[J].
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2024</div><img src='/images/taia.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
--	`Jiang S*`, Liao Y*, Zhang Y, et al. Taia: Large language models are out-of-distribution data learners[J]. arXiv preprint arXiv:2405.20192, 2024.  
-[[Link]](https://arxiv.org/pdf/2405.20192) [[Download]](/pdf/3975_TAIA_Large_Language_Model.pdf)
+-	`Jiang, S.*`, Liao, Y.*, Zhang, Y., Wang, Y., & Wang, Y. (2024). TAIA: Large Language Models are Out-of-Distribution Data Learners. In Advances in Neural Information Processing Systems (pp. 105200–105235). Curran Associates, Inc.. 
+[[Link]](https://arxiv.org/pdf/2405.20192) 
 
 </div>
 </div>
@@ -82,7 +91,7 @@ REDUCTION[J].
 <div class='paper-box-text' markdown="1">
 
 -	Zhang J*, `Jiang S*`, Feng J, et al. Cab: comprehensive attention benchmarking on long sequence modeling[C]//International Conference on Machine Learning. PMLR, 2023: 41194-41218.   
-[[Link]](https://proceedings.mlr.press/v202/zhang23r/zhang23r.pdf) [[Download]](/pdf/zhang23r.pdf)
+[[Link]](https://proceedings.mlr.press/v202/zhang23r/zhang23r.pdf) 
 
 </div>
 </div>
@@ -91,7 +100,7 @@ REDUCTION[J].
 <div class='paper-box-text' markdown="1">
 
 -	`Jiang S`, Wang Y, Wang Y. Selfevolve: A code evolution framework via large language models[J]. arXiv preprint arXiv:2306.02907, 2023.    
-[[Link]](https://arxiv.org/pdf/2306.02907) [[Download]](/pdf/selfevolve.pdf) <span class='show_paper_citations' data='slwTiOUAAAAJ:d1gkVwhDpl0C'></span>
+[[Link]](https://arxiv.org/pdf/2306.02907)  <span class='show_paper_citations' data='slwTiOUAAAAJ:d1gkVwhDpl0C'></span>
 
 </div>
 </div>
@@ -101,7 +110,7 @@ REDUCTION[J].
 <div class='paper-box-text' markdown="1">
 
 -	`Jiang S`, Zhang J, Feng J, et al. Attentive Multi-Layer Perceptron for Non-autoregressive Generation[C]//Joint European Conference on Machine Learning and Knowledge Discovery in Databases. Cham: Springer Nature Switzerland, 2023: 612-629.   
-[[Link]](https://arxiv.org/pdf/2310.09512) [[Download]](/pdf/amlp.pdf)
+[[Link]](https://arxiv.org/pdf/2310.09512) 
 
 </div>
 </div>
@@ -114,7 +123,7 @@ REDUCTION[J].
 <div class='paper-box-text' markdown="1">
 
 -	Liao Y, `Jiang S`, Chen Z, et al. MedCare: Advancing medical LLMs through decoupling clinical alignment and knowledge aggregation[C]//Findings of the Association for Computational Linguistics: EMNLP 2024. 2024: 2538-2554.   
-[[Link]](https://arxiv.org/pdf/2406.17484) [[Download]](/pdf/medcare.pdf)
+[[Link]](https://arxiv.org/pdf/2406.17484) 
 
 </div>
 </div>
@@ -123,7 +132,7 @@ REDUCTION[J].
 <div class='paper-box-text' markdown="1">
 
 -	Su H, `Jiang S`, Lai Y, et al. EvoR: Evolving Retrieval for Code Generation[C]//Findings of the Association for Computational Linguistics: EMNLP 2024. 2024: 2538-2554.   
-[[Link]](https://aclanthology.org/2024.findings-emnlp.143.pdf) [[Download]](/pdf/evolr.pdf)
+[[Link]](https://aclanthology.org/2024.findings-emnlp.143.pdf) 
 
 </div>
 </div>
