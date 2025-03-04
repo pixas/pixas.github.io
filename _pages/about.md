@@ -23,7 +23,7 @@ My research interest includes
 - *efficient machine learning and downstream adaptation* and 
 - *alignment of large language models in the Healthcare/Clinical domain*.
 
-I am fortunate to be advised by [Prof. Yu Wang](https://yuwangsjtu.github.io/) and [Prof. Ya Zhang](https://mediabrain.sjtu.edu.cn/yazhang/).
+I am fortunate to be advised by [Prof. Yu Wang](https://yuwangsjtu.github.io/) and [Prof. Ya Zhang](https://mediabrain.sjtu.edu.cn/yazhang/). The resume can be found [here](/pdf/resume.pdf)
 
 
 <!-- 我的研究领域包括：
