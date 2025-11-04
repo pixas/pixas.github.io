@@ -72,7 +72,7 @@ REDUCTION[J].
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Arxiv Preprint</div><img src='/images/meds3.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
--	`Jiang S`, Liao Y, Chen Z, et al. MedS $^ 3$: Towards Medical Small Language Models with Self-Evolved Slow Thinking[J]. arXiv preprint arXiv:2501.12051, 2025.  
+-	`Jiang S`, Liao Y, Chen Z, et al. MedS $^ 3$: Towards Medical Slow Thinking with Self-Evolved Soft Dual-sided Process Supervision[J]. arXiv preprint arXiv:2501.12051, 2025.  
 [[Link]](https://arxiv.org/pdf/2501.12051) 
 
 </div>
@@ -118,11 +118,19 @@ REDUCTION[J].
 
 ### Others
 ---
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2025 Oral</div><img src='/images/evolr.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+-Liao Y*, `Jiang S*`, Wang Y, et al. ReflecTool: Towards Reflection-Aware Tool-Augmented Clinical Agents. In Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 13507–13531, Vienna, Austria. Association for Computational Linguistics. 
+[[Link]](https://aclanthology.org/2025.acl-long.663.pdf) 
+
+</div>
+</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">EMNLP 2024</div><img src='/images/medcare.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
--	Liao Y, `Jiang S`, Chen Z, et al. MedCare: Advancing medical LLMs through decoupling clinical alignment and knowledge aggregation[C]//Findings of the Association for Computational Linguistics: EMNLP 2024. 2024: 2538-2554.   
+-	Liao Y*, `Jiang S*`, Chen Z, et al. MedCare: Advancing medical LLMs through decoupling clinical alignment and knowledge aggregation[C]//Findings of the Association for Computational Linguistics: EMNLP 2024. 2024: 2538-2554.   
 [[Link]](https://arxiv.org/pdf/2406.17484) 
 
 </div>
@@ -136,6 +144,8 @@ REDUCTION[J].
 
 </div>
 </div>
+
+
 
 
 <!-- 
