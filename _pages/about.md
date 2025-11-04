@@ -63,7 +63,7 @@ REDUCTION[J].
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2025 Spotlight</div><img src='/images/norm.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
--	`Jiang, S.`, Liao, Y., Zhang, Y., Wang, Y., & Wang, Y. (2025). Fine-tuning with Reserved Majority for Noise Reduction. In The Thirteenth International Conference on Learning Representations.
+-	`Jiang, S.`, Liao, Y., Zhang, Y., Wang, Y., & Wang, Y. (2025). Fine-tuning with Reserved Majority for Noise Reduction. In The Thirteenth International Conference on Learning Representations. 
 [[Link]](https://openreview.net/pdf?id=ZV7CLf0RHK) 
 
 </div>
@@ -90,7 +90,7 @@ REDUCTION[J].
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICML 2023</div><img src='/images/cab.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
--	Zhang J*, `Jiang S*`, Feng J, et al. Cab: comprehensive attention benchmarking on long sequence modeling[C]//International Conference on Machine Learning. PMLR, 2023: 41194-41218.   
+-	Zhang, J.*, `Jiang S.*`, Feng J., et al. Cab: comprehensive attention benchmarking on long sequence modeling[C]//International Conference on Machine Learning. PMLR, 2023: 41194-41218.   
 [[Link]](https://proceedings.mlr.press/v202/zhang23r/zhang23r.pdf) 
 
 </div>
@@ -99,7 +99,7 @@ REDUCTION[J].
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Arxiv Preprint</div><img src='/images/selfevolve.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
--	`Jiang S`, Wang Y, Wang Y. Selfevolve: A code evolution framework via large language models[J]. arXiv preprint arXiv:2306.02907, 2023.    
+-	`Jiang S.`, Wang Y., & Wang Y. Selfevolve: A code evolution framework via large language models[J]. arXiv preprint arXiv:2306.02907, 2023.    
 [[Link]](https://arxiv.org/pdf/2306.02907)  <span class='show_paper_citations' data='slwTiOUAAAAJ:d1gkVwhDpl0C'></span>
 
 </div>
@@ -109,7 +109,7 @@ REDUCTION[J].
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECML-PKDD 2023</div><img src='/images/amlp.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
--	`Jiang S`, Zhang J, Feng J, et al. Attentive Multi-Layer Perceptron for Non-autoregressive Generation[C]//Joint European Conference on Machine Learning and Knowledge Discovery in Databases. Cham: Springer Nature Switzerland, 2023: 612-629.   
+-	`Jiang S.`, Zhang J., Feng J., et al. Attentive Multi-Layer Perceptron for Non-autoregressive Generation[C]//Joint European Conference on Machine Learning and Knowledge Discovery in Databases. Cham: Springer Nature Switzerland, 2023: 612-629.   
 [[Link]](https://arxiv.org/pdf/2310.09512) 
 
 </div>
@@ -118,10 +118,10 @@ REDUCTION[J].
 
 ### Others
 ---
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2025 Oral</div><img src='/images/evolr.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2025 Oral</div><img src='/images/reflectool.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
--Liao Y*, `Jiang S*`, Wang Y, et al. ReflecTool: Towards Reflection-Aware Tool-Augmented Clinical Agents. In Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 13507–13531, Vienna, Austria. Association for Computational Linguistics. 
+-Liao Y., `Jiang S.`, Wang Y, et al. ReflecTool: Towards Reflection-Aware Tool-Augmented Clinical Agents. In Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 13507–13531, Vienna, Austria. Association for Computational Linguistics. 
 [[Link]](https://aclanthology.org/2025.acl-long.663.pdf) 
 
 </div>
