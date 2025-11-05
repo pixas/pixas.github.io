@@ -127,7 +127,7 @@ REDUCTION[J].
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">EMNLP 2025 Main</div><img src='/images/reflectool.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">EMNLP 2025 Main</div><img src='/images/semob.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 -Chen, R., `Jiang, S`., & Huang, W. (2025). SeMob: Semantic Synthesis for Dynamic Urban Mobility Prediction. In Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing, pages 15346–15366, Suzhou, China. Association for Computational Linguistics. 
 [[Link]](https://aclanthology.org/2025.emnlp-main.775.pdf) 
@@ -137,7 +137,7 @@ REDUCTION[J].
 
 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">EMNLP 2024</div><img src='/images/semob.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">EMNLP 2024 Findings</div><img src='/images/medcare.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 -	Liao Y*, `Jiang S*`, Chen Z, et al. MedCare: Advancing medical LLMs through decoupling clinical alignment and knowledge aggregation[C]//Findings of the Association for Computational Linguistics: EMNLP 2024. 2024: 2538-2554.   
@@ -146,7 +146,7 @@ REDUCTION[J].
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">EMNLP 2024</div><img src='/images/evolr.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">EMNLP 2024 Findings</div><img src='/images/evolr.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 -	Su H, `Jiang S`, Lai Y, et al. EvoR: Evolving Retrieval for Code Generation[C]//Findings of the Association for Computational Linguistics: EMNLP 2024. 2024: 2538-2554.   
