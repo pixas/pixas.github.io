@@ -135,7 +135,7 @@ REDUCTION[J].
 </div>
 </div>
 
-https://arxiv.org/pdf/2510.01245
+
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">EMNLP 2024</div><img src='/images/semob.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
