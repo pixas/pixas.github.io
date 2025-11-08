@@ -69,10 +69,12 @@ REDUCTION[J].
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Arxiv Preprint</div><img src='/images/meds3.png' alt="sym" width="100%"></div></div>
+
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">AAAI 2026 Main</div><img src='/images/meds3.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
--	`Jiang S`, Liao Y, Chen Z, et al. MedS $^ 3$: Towards Medical Slow Thinking with Self-Evolved Soft Dual-sided Process Supervision[J]. arXiv preprint arXiv:2501.12051, 2025.  
+-	`Jiang S`, Liao Y, Chen Z, et al. MedS $^ 3$: Towards Medical Slow Thinking with Self-Evolved Soft Dual-sided Process Supervision[J]. AAAI 2026.  
 [[Link]](https://arxiv.org/pdf/2501.12051) 
 
 </div>
