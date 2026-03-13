@@ -23,7 +23,7 @@ My research interest includes
 - *efficient machine learning and downstream adaptation* and 
 - *alignment of large language models in the Healthcare/Clinical domain*.
 
-I am fortunate to be advised by [Prof. Yu Wang](https://yuwangsjtu.github.io/) and [Prof. Ya Zhang](https://mediabrain.sjtu.edu.cn/yazhang/). 
+I am fortunate to be advised by [Prof. Yu Wang](https://yuwangsjtu.github.io/) and [Prof. Ya Zhang](https://mediabrain.sjtu.edu.cn/yazhang/). My resume could be attached by [here](../pdf/resume.pdf)
 
 
 <!-- 我的研究领域包括：
@@ -59,6 +59,15 @@ REDUCTION[J].
 
 </div> -->
 <!-- </div> -->
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026 Oral</div><img src='/images/decs.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+-	`Jiang, S.`, Liao, Y., Zhang, Y., Wang, Y., & Wang, Y. (2026). Overthinking Reduction with Decoupled Rewards and Curriculum Data Scheduling. In The Fourteenth International Conference on Learning Representations. 
+[[Link]](https://openreview.net/pdf?id=kdeiRledV6) 
+
+</div>
+</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2025 Spotlight</div><img src='/images/norm.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
