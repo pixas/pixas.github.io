@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am a second year Ph.D student from School of [Computer Science](https://cs.fudan.edu.cn/), [Funda University](https://www.fudan.edu.cn/) and co-supervised and sponsored by [Shanghai AI Laboratory](https://www.shlab.org.cn/).  
+I am a third year Ph.D student from School of [Computer Science](https://cs.fudan.edu.cn/), [Funda University](https://www.fudan.edu.cn/) and co-supervised and sponsored by [Shanghai AI Laboratory](https://www.shlab.org.cn/).  
 My research interest includes   
 - *natural language processing*, 
 - *efficient machine learning and downstream adaptation* and 
@@ -26,15 +26,6 @@ My research interest includes
 I am fortunate to be advised by [Prof. Yu Wang](https://yuwangsjtu.github.io/) and [Prof. Ya Zhang](https://mediabrain.sjtu.edu.cn/yazhang/). My resume could be attached by [here](../pdf/resume.pdf)
 
 
-<!-- 我的研究领域包括：
-- 仪器仪表
-- 机械工程
-- 电磁无损检测
-- 漏磁检测
-- 涡流检测
-- 磁传感器
-- 无损检测装备开发
-   -->
 
 
 <span class='anchor' id='-xl'></span>
@@ -78,9 +69,16 @@ REDUCTION[J].
 </div>
 </div>
 
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2026 Main</div><img src='/images/miner.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
 
+-	`Jiang S`, Wang Y, Zhang Y, et al. Miner: Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models[J]. ACL 2026.  
+[[Link]](https://arxiv.org/pdf/2601.04731) 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">AAAI 2026 Main</div><img src='/images/meds3.png' alt="sym" width="100%"></div></div>
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">AAAI 2026 Poster</div><img src='/images/meds3.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 -	`Jiang S`, Liao Y, Chen Z, et al. MedS $^ 3$: Towards Medical Slow Thinking with Self-Evolved Soft Dual-sided Process Supervision[J]. AAAI 2026.  
