@@ -87,7 +87,7 @@ REDUCTION[J].
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2024</div><img src='/images/taia.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2024 Poster</div><img src='/images/taia.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 -	`Jiang, S.*`, Liao, Y.*, Zhang, Y., Wang, Y., & Wang, Y. (2024). TAIA: Large Language Models are Out-of-Distribution Data Learners. In Advances in Neural Information Processing Systems (pp. 105200–105235). Curran Associates, Inc.. 
