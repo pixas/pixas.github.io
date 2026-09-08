@@ -17,11 +17,11 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am a third year Ph.D student from School of [Computer Science](https://cs.fudan.edu.cn/), [Funda University](https://www.fudan.edu.cn/) and co-supervised and sponsored by [Shanghai AI Laboratory](https://www.shlab.org.cn/).  
+I am a third year Ph.D student from School of [Computer Science](https://cs.fudan.edu.cn/), [Funda University](https://www.fudan.edu.cn/).
 My research interest includes   
 - *natural language processing*, 
 - *efficient machine learning and downstream adaptation* and 
-- *alignment of large language models in the Healthcare/Clinical domain*.
+- *scaling of reinforcement learning*.
 
 I am fortunate to be advised by [Prof. Yu Wang](https://yuwangsjtu.github.io/) and [Prof. Ya Zhang](https://mediabrain.sjtu.edu.cn/yazhang/). My resume could be attached by [here](../pdf/resume.pdf)
 
