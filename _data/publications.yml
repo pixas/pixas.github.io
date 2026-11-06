@@ -1,0 +1,146 @@
+# Single source of truth for the publication list.
+# Rendered by _includes/paper-card.html; citation counts are matched by title.
+# Keep author initials consistent and wrap your own name in <strong class='me'>.
+
+highlight:
+  - title: "Overthinking Reduction with Decoupled Rewards and Curriculum Data Scheduling"
+    authors: "<strong class='me'>S. Jiang</strong>, Y. Liao, Y. Zhang, Y. Wang, Y. Wang"
+    venue: "ICLR"
+    year: 2026
+    tags: ["Oral"]
+    image: "/images/decs.png"
+    image_alt: "DECS: decoupled rewards and curriculum scheduling overview"
+    links:
+      - label: "OpenReview"
+        url: "https://openreview.net/forum?id=kdeiRledV6"
+      - label: "PDF"
+        url: "https://openreview.net/pdf?id=kdeiRledV6"
+
+  - title: "Fine-Tuning with Reserved Majority for Noise Reduction"
+    authors: "<strong class='me'>S. Jiang</strong>, Y. Liao, Y. Zhang, Y. Wang, Y. Wang"
+    venue: "ICLR"
+    year: 2025
+    tags: ["Spotlight"]
+    image: "/images/norm.png"
+    image_alt: "NoRM: reserved majority fine-tuning overview"
+    links:
+      - label: "OpenReview"
+        url: "https://openreview.net/forum?id=ZV7CLf0RHK"
+      - label: "PDF"
+        url: "https://openreview.net/pdf?id=ZV7CLf0RHK"
+
+  - title: "Miner: Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models"
+    authors: "<strong class='me'>S. Jiang</strong>, Y. Wang, Y. Zhang, Y. Wang, Y. Wang"
+    venue: "ACL"
+    year: 2026
+    tags: ["Main"]
+    image: "/images/miner.png"
+    image_alt: "Miner: data-efficient RL framework overview"
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2601.04731"
+      - label: "PDF"
+        url: "https://arxiv.org/pdf/2601.04731"
+
+  - title: "MedS<sup>3</sup>: Towards Medical Slow Thinking with Self-Evolved Soft Dual-sided Process Supervision"
+    authors: "<strong class='me'>S. Jiang</strong>, Y. Liao, Z. Chen, Y. Zhang, Y. Wang, Y. Wang"
+    venue: "AAAI"
+    year: 2026
+    tags: ["Poster"]
+    image: "/images/meds3.png"
+    image_alt: "MedS3: medical slow thinking framework overview"
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2501.12051"
+      - label: "PDF"
+        url: "https://arxiv.org/pdf/2501.12051"
+
+  - title: "TAIA: Large Language Models Are Out-of-Distribution Data Learners"
+    authors: "<strong class='me'>S. Jiang</strong>, Y. Liao, Y. Zhang, Y. Wang, Y. Wang"
+    venue: "NeurIPS"
+    year: 2024
+    tags: ["Poster"]
+    image: "/images/taia.png"
+    image_alt: "TAIA: out-of-distribution data learning overview"
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2405.20192"
+      - label: "PDF"
+        url: "https://arxiv.org/pdf/2405.20192"
+
+  - title: "CAB: Comprehensive Attention Benchmarking on Long Sequence Modeling"
+    authors: "J. Zhang, <strong class='me'>S. Jiang</strong>, J. Feng, L. Zheng, L. Kong"
+    venue: "ICML"
+    year: 2023
+    tags: []
+    image: "/images/cab.png"
+    image_alt: "CAB: long sequence attention benchmark overview"
+    links:
+      - label: "PDF"
+        url: "https://proceedings.mlr.press/v202/zhang23r/zhang23r.pdf"
+
+  - title: "SelfEvolve: A Code Evolution Framework via Large Language Models"
+    authors: "<strong class='me'>S. Jiang</strong>, Y. Wang, Y. Wang"
+    venue: "arXiv"
+    year: 2023
+    tags: ["Preprint"]
+    image: "/images/selfevolve.png"
+    image_alt: "SelfEvolve: code evolution framework overview"
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2306.02907"
+      - label: "PDF"
+        url: "https://arxiv.org/pdf/2306.02907"
+
+others:
+  - title: "ReflecTool: Towards Reflection-Aware Tool-Augmented Clinical Agents"
+    authors: "Y. Liao, <strong class='me'>S. Jiang</strong>, Y. Wang, Y. Wang"
+    venue: "ACL"
+    year: 2025
+    tags: ["Oral"]
+    image: "/images/reflectool.png"
+    image_alt: "ReflecTool: reflection-aware clinical agent overview"
+    links:
+      - label: "ACL Anthology"
+        url: "https://aclanthology.org/2025.acl-long.663/"
+      - label: "PDF"
+        url: "https://aclanthology.org/2025.acl-long.663.pdf"
+
+  - title: "SeMob: Semantic Synthesis for Dynamic Urban Mobility Prediction"
+    authors: "R. Chen, <strong class='me'>S. Jiang</strong>, W. Huang"
+    venue: "EMNLP"
+    year: 2025
+    tags: ["Main"]
+    image: "/images/semob.png"
+    image_alt: "SeMob: urban mobility prediction overview"
+    links:
+      - label: "ACL Anthology"
+        url: "https://aclanthology.org/2025.emnlp-main.775/"
+      - label: "PDF"
+        url: "https://aclanthology.org/2025.emnlp-main.775.pdf"
+
+  - title: "MedCare: Advancing Medical LLMs through Decoupling Clinical Alignment and Knowledge Aggregation"
+    authors: "Y. Liao, <strong class='me'>S. Jiang</strong>, Z. Chen, Y. Wang, Y. Wang"
+    venue: "EMNLP"
+    year: 2024
+    tags: ["Findings"]
+    image: "/images/medcare.png"
+    image_alt: "MedCare: clinical alignment framework overview"
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2406.17484"
+      - label: "PDF"
+        url: "https://arxiv.org/pdf/2406.17484"
+
+  - title: "EvoR: Evolving Retrieval for Code Generation"
+    authors: "H. Su, <strong class='me'>S. Jiang</strong>, Y. Lai, H. Wu, B. Shi, C. Liu, Q. Liu, T. Yu"
+    venue: "EMNLP"
+    year: 2024
+    tags: ["Findings"]
+    image: "/images/evolr.png"
+    image_alt: "EvoR: evolving retrieval for code generation overview"
+    links:
+      - label: "ACL Anthology"
+        url: "https://aclanthology.org/2024.findings-emnlp.143/"
+      - label: "PDF"
+        url: "https://aclanthology.org/2024.findings-emnlp.143.pdf"

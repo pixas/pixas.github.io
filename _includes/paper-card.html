@@ -1,0 +1,16 @@
+<div class='paper-box'>
+  <div class='paper-box-image'>
+    <img src='{{ include.paper.image }}' alt='{{ include.paper.image_alt }}' width="100%" loading="lazy" decoding="async">
+  </div>
+  <div class='paper-box-text'>
+    <div class='paper-tags'>
+      <span class='paper-venue'>{{ include.paper.venue }} {{ include.paper.year }}</span>
+      {% for tag in include.paper.tags %}<span class='paper-tag'>{{ tag }}</span>{% endfor %}
+    </div>
+    <p class='paper-title'>{{ include.paper.title }}</p>
+    <p class='paper-authors'>{{ include.paper.authors }}</p>
+    <div class='paper-links'>
+      {% for link in include.paper.links %}<a class='paper-link' href='{{ link.url }}' target='_blank' rel='noopener noreferrer'>{{ link.label }}</a>{% endfor %}
+    </div>
+  </div>
+</div>

@@ -100,7 +100,8 @@
       badge.textContent = 'Citations ' + match.num_citations + ' ↗';
       badge.title = sourceLabel(match.source) + ' · 更新于 ' + data.updated + (data.note ? ' · ' + data.note : '');
       row.appendChild(badge);
-      body.appendChild(row);
+      var actions = card.querySelector('.paper-links');
+      (actions || body).appendChild(row);
     });
 
     setText('total_cit', data.total_citations);
