@@ -9,7 +9,8 @@
 title                    : "Shuyang Jiang"
 description              : "ML/NLP Ph.D."
 repository               : "pixas/pixas.github.io"
-google_scholar_stats_use_cdn : false
+# 引用数据由 google_scholar_crawler/main.py 写入 assets/data/citations.json，
+# 页面从同源读取，无需 CDN 或额外配置。
 
 # google analytics
 google_analytics_id      :  # get google_analytics_id from https://analytics.google.com/analytics/

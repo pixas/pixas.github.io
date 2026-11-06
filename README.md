@@ -26,7 +26,9 @@ AcadHomepage
 - [作者的个人主页](https://rayeren.github.io/)
 
 ## 主要特点
-- **自动更新谷歌学术引用**: 借助谷歌学术爬虫和github action功能，本仓库可以自动更新作者的引用数和论文引用数。
+- **引用数与 Google Scholar 保持一致**: 每天直连 Google Scholar 个人主页解析最新数值，写入仓库内的 `assets/data/citations.json`，页面从同源读取，不经过 CDN 缓存或跨站请求。
+- **可靠的降级**: 直连被拦时依次尝试 `scholarly`、OpenAlex、Semantic Scholar，全部失败则保留上次快照并标注「缓存」与数据日期，页面不会空白或显示错误数字。
+- **每篇论文自动显示引用数**: 按论文标题自动匹配，不需要手工填写 Google Scholar 论文 ID；侧栏同时显示总引用数、h-index、i10-index、数据来源与更新时间。
 - **支持谷歌Analytics**: 你可以通过简单的配置来实现使用谷歌Analytics跟踪网页的流量。
 - **响应式的**: 此主页会针对不同的屏幕尺寸自动调整布局。
 - **美观而简约**: 此主页美观而简约，适合个人学术主页的搭建。
@@ -35,10 +37,14 @@ AcadHomepage
 ## 快速开始
 
 1. Fork本仓库到`USERNAME/USERNAME.github.io`，其中`USERNAME`是你的github用户名。
-1. 配置谷歌学术引用爬虫：
-    1. 在你的谷歌学术引用页面的url里找到你的谷歌学术ID：例如，在url https://scholar.google.com/citations?user=SCHOLAR_ID 中，`SCHOLAR_ID`部分即为你的谷歌学术ID。
-    1. 在github本仓库页面的`Settings -> Secrets -> Actions -> New repository secret`中，添加`GOOGLE_SCHOLAR_ID`变量：`name=GOOGLE_SCHOLAR_ID`、`value=SCHOLAR_ID`。
-    1. 在github本仓库页面的`Action`中，点击*"I understand my workflows, go ahead and enable them"*启用workflows by clicking *"。本action将会谷歌学术引用的统计量数据`gs_data.json`到本仓库的`google-scholar-stats`分支中。每次修改main分支的内容会触发该action。本action也会在每天08:00 UTC定时触发。
+1. 确认 `_config.yml` 里的 `author.googlescholar` 是你的 Google Scholar 主页链接，爬虫会从中读取学术 ID（也可用 Secret `GOOGLE_SCHOLAR_ID` 覆盖）。
+1. 配置工作流（可选但建议）：
+    1. `OPENALEX_API_KEY`：https://openalex.org/settings/api 免费申请。
+    1. `S2_API_KEY`：https://www.semanticscholar.org/product/api#api-key-form 免费申请。
+    1. Google Scholar 没有官方 API，CI 出口 IP 偶尔会被拦截；两个开放学术 API 的免费额度按 IP 共享，不带 key 时容易被限流。配置 key 后兜底才真正可靠。
+    1. 在 `Actions` 页面启用 workflow。它每天 08:00 UTC 运行（也可手动 `workflow_dispatch`），把数据写回 `assets/data/citations.json`；数值无变化时不产生提交。提交会触发 Pages 重新构建，页面随之更新。
+    1. 也可以本地执行 `python3 google_scholar_crawler/main.py` 立即刷新数据，然后提交该文件。
+1. 页面会自动按论文标题匹配引用数并插入徽章，**不需要**给每篇论文手写 `<span class='show_paper_citations'>`；新增论文只要标题能在引用数据里找到就会自动带上数字。
 1. 使用 [favicon-generator](https://redketchup.io/favicon-generator)生成favicon（网页icon文件），并下载所有文件到`REPO/images`。
 1. 修改主页配置文件[_config.yml](../_config.yml):
     1. `title`: 主页标题
@@ -47,7 +53,6 @@ AcadHomepage
     1. `google_analytics_id` (可选的): 谷歌Analytics ID
     1. SEO相关的键值 (可选的): 从搜索引擎的控制台里获得对应的ID (例如：Google, Bing and Baidu)，然后粘贴到这里。
     1. `author`: 主页作者信息，包括其他网页、Email、所在城市、大学等。
-    1. `google_scholar_stats_use_cdn`: 使用CDN读取存储于`https://raw.githubusercontent.com/`的google scholar引用统计数据，防止中国大陆地区被墙无法访问的情况。但是CDN有缓存，因此`google_scholar_stats_use_cdn : True`时，引用数据更新会有延迟。
     1. 更多的配置信息在注释中有详细描述。
 1. 将你的主页内容添加到 [_pages/about.md](../_pages/about.md).
 1. 你的主页将会被部署到`https://USERNAME.github.io`.

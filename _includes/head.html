@@ -14,6 +14,14 @@
 <link rel="stylesheet" href="assets/css/main.css">
 
 <meta http-equiv="cleartype" content="on">
-<head>
-  <base target="_blank">
-</head>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    Array.prototype.forEach.call(document.querySelectorAll('a[href^="http"]'), function (link) {
+      if (link.host && link.host !== window.location.host) {
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+      }
+    });
+  });
+</script>

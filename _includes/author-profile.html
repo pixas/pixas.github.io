@@ -13,6 +13,22 @@
     {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
   </div>
 
+  <div class="citation-stats" aria-label="Citation metrics">
+    <div class="citation-stats__item">
+      <span class="citation-stats__label">Citations</span>
+      <span class="citation-stats__value" id="total_cit">—</span>
+    </div>
+    <div class="citation-stats__item">
+      <span class="citation-stats__label">h-index</span>
+      <span class="citation-stats__value" id="h_index">—</span>
+    </div>
+    <div class="citation-stats__item">
+      <span class="citation-stats__label">i10-index</span>
+      <span class="citation-stats__value" id="i10_index">—</span>
+    </div>
+    <a class="citation-stats__source" id="citation_meta" href="{{ author.googlescholar }}" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+  </div>
+
   <div class="author__urls-wrapper">
     <!-- <button class="btn btn--inverse">More Info & Contact</button> -->
     <ul class="author__urls social-icons">

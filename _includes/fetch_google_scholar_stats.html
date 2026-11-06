@@ -1,19 +1,149 @@
 <script>
-    $(document).ready(function () {
-        {% if site.google_scholar_stats_use_cdn %}
-        var gsDataBaseUrl = 'https://cdn.jsdelivr.net/gh/{{ site.repository }}@'
-        {% else %}
-        var gsDataBaseUrl = 'https://raw.githubusercontent.com/{{ site.repository }}/'
-        {% endif %}
-        $.getJSON(gsDataBaseUrl + "google-scholar-stats/gs_data.json", function (data) {
-            var totalCitation = data['citedby']
-            document.getElementById('total_cit').innerHTML = totalCitation;
-            var citationEles = document.getElementsByClassName('show_paper_citations')
-            Array.prototype.forEach.call(citationEles, element => {
-                var paperId = element.getAttribute('data')
-                var numCitations = data['publications'][paperId]['num_citations']
-                element.innerHTML = '| Citations: ' + numCitations;
-            });
-        });
-    })
+(function () {
+  var urls = [
+    '{{ site.baseurl }}/assets/data/citations.json',
+    'https://cdn.jsdelivr.net/gh/{{ site.repository }}@master/assets/data/citations.json',
+    'https://cdn.jsdelivr.net/gh/{{ site.repository }}@google-scholar-stats/gs_data.json',
+    'https://raw.githubusercontent.com/{{ site.repository }}/google-scholar-stats/gs_data.json'
+  ];
+  var scholarProfile = '{{ site.author.googlescholar }}';
+
+  function normalize(text) {
+    return (text || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+  }
+
+  function stripDigits(text) {
+    return (text || '').replace(/[0-9]+/g, '');
+  }
+
+  function setText(id, value) {
+    var element = document.getElementById(id);
+    if (element) {
+      element.textContent = (value === undefined || value === null) ? '—' : String(value);
+    }
+  }
+
+  function sourceLabel(source) {
+    var labels = {
+      google_scholar: 'Google Scholar',
+      openalex: 'OpenAlex',
+      semantic_scholar: 'Semantic Scholar',
+      cached_google_scholar: 'Google Scholar'
+    };
+    return labels[source] || 'Google Scholar';
+  }
+
+  /* Legacy gs_data.json is still published until the workflow writes
+     citations.json for the first time. Show that snapshot in the meantime. */
+  function adapt(data) {
+    if (!data || data.citedby === undefined || !data.publications || data.total_citations !== undefined) {
+      return data;
+    }
+    var publications = {};
+    Object.keys(data.publications).forEach(function (key) {
+      var publication = data.publications[key] || {};
+      var title = (publication.bib || {}).title;
+      if (!title) { return; }
+      publications[normalize(title)] = {
+        title: title,
+        num_citations: parseInt(publication.num_citations, 10) || 0,
+        url: publication.citedby_url || scholarProfile,
+        source: 'cached_google_scholar'
+      };
+    });
+    return {
+      updated: String(data.updated || '').slice(0, 10),
+      source: 'google_scholar',
+      source_label: 'Google Scholar',
+      total_citations: data.citedby || 0,
+      h_index: data.hindex || 0,
+      i10_index: data.i10index || 0,
+      stale: true,
+      note: '自动更新恢复前显示上一次抓取的快照',
+      publications: publications
+    };
+  }
+
+  function render(data) {
+    var publications = data.publications || {};
+    var keys = Object.keys(publications).sort(function (a, b) { return b.length - a.length; });
+
+    Array.prototype.forEach.call(document.querySelectorAll('.paper-box'), function (card) {
+      var body = card.querySelector('.paper-box-text');
+      if (!body || card.querySelector('.citation-badge')) { return; }
+
+      var text = normalize(body.textContent || '');
+      var textNoDigits = stripDigits(text);
+      var match = null;
+      for (var i = 0; i < keys.length; i += 1) {
+        var key = keys[i];
+        if (!key) { continue; }
+        if (text.indexOf(key) !== -1) {
+          match = publications[key];
+          break;
+        }
+        var keyNoDigits = stripDigits(key);
+        if (keyNoDigits.length >= 20 && textNoDigits.indexOf(keyNoDigits) !== -1) {
+          match = publications[key];
+          break;
+        }
+      }
+      if (!match) { return; }
+
+      var row = document.createElement('div');
+      row.className = 'citation-row';
+      var badge = document.createElement('a');
+      badge.className = 'citation-badge';
+      badge.href = match.url || scholarProfile;
+      badge.target = '_blank';
+      badge.rel = 'noopener noreferrer';
+      badge.textContent = 'Citations ' + match.num_citations + ' ↗';
+      badge.title = sourceLabel(match.source) + ' · 更新于 ' + data.updated + (data.note ? ' · ' + data.note : '');
+      row.appendChild(badge);
+      body.appendChild(row);
+    });
+
+    setText('total_cit', data.total_citations);
+    setText('h_index', data.h_index);
+    setText('i10_index', data.i10_index);
+    var meta = document.getElementById('citation_meta');
+    if (meta) {
+      meta.textContent = data.source_label + (data.stale ? ' · 缓存' : '') + ' · 更新于 ' + data.updated;
+      meta.title = data.note || '';
+    }
+  }
+
+  function load(index) {
+    if (index >= urls.length || typeof fetch === 'undefined') { return; }
+    var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var timer = controller ? setTimeout(function () { controller.abort(); }, 8000) : null;
+    var url = urls[index] + (urls[index].indexOf('?') === -1 ? '?v=' : '&v=') + Date.now();
+
+    fetch(url, controller ? { signal: controller.signal } : {})
+      .then(function (response) {
+        if (!response.ok) { throw new Error('HTTP ' + response.status); }
+        return response.json();
+      })
+      .then(function (data) {
+        if (timer) { clearTimeout(timer); }
+        var payload = adapt(data);
+        if (payload && payload.publications && Object.keys(payload.publications).length) {
+          render(payload);
+        } else {
+          load(index + 1);
+        }
+      })
+      .catch(function () {
+        if (timer) { clearTimeout(timer); }
+        load(index + 1);
+      });
+  }
+
+  function start() { load(0); }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', start);
+  } else {
+    start();
+  }
+})();
 </script>

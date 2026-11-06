@@ -1,0 +1,139 @@
+{
+  "updated": "2026-11-06 10:05 UTC",
+  "source": "google_scholar",
+  "source_label": "Google Scholar",
+  "author": "‪Shuyang Jiang‬",
+  "total_citations": 588,
+  "h_index": 11,
+  "i10_index": 11,
+  "stale": false,
+  "note": "",
+  "publications": {
+    "elicitingmedicalreasoningwithknowledgeenhanceddatasynthesisasemisupervisedreinforcementlearningapproach": {
+      "title": "Eliciting Medical Reasoning with Knowledge-enhanced Data Synthesis: A Semi-Supervised Reinforcement Learning Approach",
+      "num_citations": 1,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:MXK_kJrjxJIC",
+      "source": "google_scholar"
+    },
+    "minerminingintrinsicmasteryfordataefficientrlinlargereasoningmodels": {
+      "title": "Miner: Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models",
+      "num_citations": 1,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:8k81kl-MbHgC",
+      "source": "google_scholar"
+    },
+    "overthinkingreductionwithdecoupledrewardsandcurriculumdatascheduling": {
+      "title": "Overthinking reduction with decoupled rewards and curriculum data scheduling",
+      "num_citations": 7,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:UebtZRa9Y70C",
+      "source": "google_scholar"
+    },
+    "semobsemanticsynthesisfordynamicurbanmobilityprediction": {
+      "title": "SeMob: Semantic Synthesis for Dynamic Urban Mobility Prediction",
+      "num_citations": 7,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:hqOjcs7Dif8C",
+      "source": "google_scholar"
+    },
+    "ehrr1areasoningenhancedfoundationallanguagemodelforelectronichealthrecordanalysis": {
+      "title": "Ehr-r1: A reasoning-enhanced foundational language model for electronic health record analysis",
+      "num_citations": 32,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:0EnyYjriUFMC",
+      "source": "google_scholar"
+    },
+    "towardsomniragcomprehensiveretrievalaugmentedgenerationforlargelanguagemodelsinmedicalapplications": {
+      "title": "Towards omni-rag: Comprehensive retrieval-augmented generation for large language models in medical applications",
+      "num_citations": 38,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:ufrVoPGSRksC",
+      "source": "google_scholar"
+    },
+    "reflectooltowardsreflectionawaretoolaugmentedclinicalagents": {
+      "title": "Reflectool: Towards reflection-aware tool-augmented clinical agents",
+      "num_citations": 37,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:eQOLeE2rZwMC",
+      "source": "google_scholar"
+    },
+    "finetuningwithreservedmajorityfornoisereduction": {
+      "title": "Fine-tuning with reserved majority for noise reduction",
+      "num_citations": 16,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:roLk4NBRz8UC",
+      "source": "google_scholar"
+    },
+    "medstowardsmedicalslowthinkingwithselfevolvedsoftdualsidedprocesssupervision": {
+      "title": "MedS: Towards Medical Slow Thinking with Self-Evolved Soft Dual-sided Process Supervision",
+      "num_citations": 50,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:_FxGoFyzp5QC",
+      "source": "google_scholar"
+    },
+    "taialargelanguagemodelsareoutofdistributiondatalearners": {
+      "title": "Taia: Large language models are out-of-distribution data learners",
+      "num_citations": 17,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:W7OEmFMy1HYC",
+      "source": "google_scholar"
+    },
+    "evorevolvingretrievalforcodegeneration": {
+      "title": "Evor: Evolving retrieval for code generation",
+      "num_citations": 85,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:WF5omc3nYNoC",
+      "source": "google_scholar"
+    },
+    "medcareadvancingmedicalllmsthroughdecouplingclinicalalignmentandknowledgeaggregation": {
+      "title": "MedCare: advancing medical LLMs through decoupling clinical alignment and knowledge aggregation",
+      "num_citations": 9,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:YsMSGLbcyi4C",
+      "source": "google_scholar"
+    },
+    "mingmoeenhancingmedicalmultitasklearninginlargelanguagemodelswithsparsemixtureoflowrankadapterexperts": {
+      "title": "MING-MOE: Enhancing medical multi-task learning in large language models with sparse mixture of low-rank adapter experts",
+      "num_citations": 29,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:Y0pCki6q_DkC",
+      "source": "google_scholar"
+    },
+    "linearattentionviaorthogonalmemory": {
+      "title": "Linear attention via orthogonal memory",
+      "num_citations": 2,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:IjCSPb-OGe4C",
+      "source": "google_scholar"
+    },
+    "selfimprovementofnonautoregressivemodelviasequenceleveldistillation": {
+      "title": "Self-improvement of non-autoregressive model via sequence-level distillation",
+      "num_citations": 5,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:UeHWp8X0CEIC",
+      "source": "google_scholar"
+    },
+    "attentivemultilayerperceptronfornonautoregressivegeneration": {
+      "title": "Attentive Multi-Layer Perceptron for Non-autoregressive Generation",
+      "num_citations": 0,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:qjMakFHDy7sC",
+      "source": "google_scholar"
+    },
+    "cabcomprehensiveattentionbenchmarkingonlongsequencemodeling": {
+      "title": "Cab: Comprehensive attention benchmarking on long sequence modeling",
+      "num_citations": 13,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:9yKSN-GCB0IC",
+      "source": "google_scholar"
+    },
+    "selfevolveacodeevolutionframeworkvialargelanguagemodels": {
+      "title": "Selfevolve: A code evolution framework via large language models",
+      "num_citations": 133,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:d1gkVwhDpl0C",
+      "source": "google_scholar"
+    },
+    "frauddetectionwithbindingglobalandlocalrelationalinteraction": {
+      "title": "Fraud Detection with Binding Global and Local Relational Interaction",
+      "num_citations": 1,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:Tyk-4Ss8FVUC",
+      "source": "google_scholar"
+    },
+    "efficient3ddeeplidarodometry": {
+      "title": "Efficient 3d deep lidar odometry",
+      "num_citations": 105,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:u5HHmVD_uO8C",
+      "source": "google_scholar"
+    },
+    "attentivemlpfornonautoregressivegeneration": {
+      "title": "Attentive MLP for Non-Autoregressive Generation",
+      "num_citations": 0,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:Zph67rFs4hoC",
+      "source": "google_scholar"
+    }
+  }
+}

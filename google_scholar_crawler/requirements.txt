@@ -1,2 +1,3 @@
-jsonpickle==1.4.2
-scholarly==1.5.1
+# Optional: if scholarly cannot be installed or Google blocks the runner IP,
+# main.py falls back to OpenAlex / Semantic Scholar / the last snapshot.
+scholarly>=1.7
