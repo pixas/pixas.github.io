@@ -92,16 +92,6 @@ I am fortunate to be advised by [Prof. Yu Wang](https://yuwangsjtu.github.io/) a
 </div>
 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECML-PKDD 2023</div><img src='/images/amlp.png' alt="AMLP: attentive multi-layer perceptron overview" width="100%" loading="lazy" decoding="async"></div></div>
-<div class='paper-box-text' markdown="1">
-
--	`Jiang S.`, Zhang J., Feng J., et al. Attentive Multi-Layer Perceptron for Non-autoregressive Generation[C]//Joint European Conference on Machine Learning and Knowledge Discovery in Databases. Cham: Springer Nature Switzerland, 2023: 612-629.   
-[[Link]](https://arxiv.org/pdf/2310.09512) 
-
-</div>
-</div>
-
-
 ### Others
 ---
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2025 Oral</div><img src='/images/reflectool.png' alt="ReflecTool: reflection-aware clinical agent overview" width="100%" loading="lazy" decoding="async"></div></div>
