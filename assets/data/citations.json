@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-07 04:45 UTC",
+  "updated": "2026-11-07 14:50 UTC",
   "source": "google_scholar",
   "source_label": "Google Scholar",
   "author": "Shuyang Jiang",
-  "total_citations": 588,
+  "total_citations": 589,
   "h_index": 11,
   "i10_index": 11,
   "stale": false,
@@ -71,7 +71,7 @@
     },
     "evorevolvingretrievalforcodegeneration": {
       "title": "Evor: Evolving retrieval for code generation",
-      "num_citations": 85,
+      "num_citations": 86,
       "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:WF5omc3nYNoC",
       "source": "google_scholar"
     },
