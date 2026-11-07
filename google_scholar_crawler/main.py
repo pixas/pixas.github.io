@@ -348,6 +348,24 @@ def fetch_semantic_scholar(titles):
     return matched
 
 
+def same_stats(a, b):
+    """Compare citation values while ignoring the refresh timestamp."""
+    def signature(payload):
+        return (
+            payload.get("source"),
+            payload.get("total_citations"),
+            payload.get("h_index"),
+            payload.get("i10_index"),
+            payload.get("stale"),
+            payload.get("note"),
+            sorted(
+                (key, value.get("num_citations"), value.get("source"), value.get("url"))
+                for key, value in (payload.get("publications") or {}).items()
+            ),
+        )
+    return signature(a) == signature(b)
+
+
 def build_payload(source, label, author, total, h_index, i10_index, publications, stale=False, note=""):
     indexed = {}
     for pub in publications:
@@ -445,6 +463,15 @@ def main():
         else:
             log("no citation source available and no previous payload found")
             return 1
+
+    if DATA_FILE.exists():
+        try:
+            existing = json.loads(DATA_FILE.read_text(encoding="utf-8"))
+            if same_stats(existing, payload):
+                log("citation values unchanged; file left untouched")
+                return 0
+        except (ValueError, OSError) as exc:
+            log("cannot compare with the existing file: %s" % exc)
 
     parent = DATA_FILE.parent
     if not parent.exists():
