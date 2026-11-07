@@ -155,11 +155,12 @@ def fetch_google_scholar_html():
     if not SCHOLAR_ID:
         log("no Google Scholar id found, skipping direct profile fetch")
         return None
-    url = (
-        "https://scholar.google.com/citations?user=%s&hl=en"
-        "&view_op=list_works&sortby=pubdate&pagesize=100" % SCHOLAR_ID
-    )
-    for attempt in range(1, 3):
+    hosts = ["scholar.google.com", "scholar.google.co.jp", "scholar.google.com.hk"]
+    for attempt, host in enumerate(hosts, 1):
+        url = (
+            "https://%s/citations?user=%s&hl=en"
+            "&view_op=list_works&sortby=pubdate&pagesize=100" % (host, SCHOLAR_ID)
+        )
         try:
             request = urllib.request.Request(
                 url,
@@ -215,7 +216,7 @@ def fetch_google_scholar_html():
             if title_match:
                 author = html.unescape(
                     re.sub(r"<[^>]+>", "", title_match.group(1))
-                ).split(" - ")[0].strip("\u200f\u200e ") or AUTHOR_NAME
+                ).split(" - ")[0].strip("\u200f\u200e\u202a\u202c\u202d ") or AUTHOR_NAME
 
             total = metrics[0] or sum(item["num_citations"] for item in publications)
             log("Google Scholar HTML OK: %d publications, %d citations" % (len(publications), total))
@@ -229,8 +230,8 @@ def fetch_google_scholar_html():
                 "publications": publications,
             }
         except Exception as exc:
-            log("Google Scholar HTML attempt %d failed: %s" % (attempt, exc))
-            time.sleep(5 * attempt)
+            log("Google Scholar HTML via %s failed: %s" % (host, exc))
+            time.sleep(2)
     return None
 
 
@@ -387,6 +388,9 @@ def main():
             result["publications"],
         )
     else:
+        if previous:
+            log("Google Scholar unavailable; keeping the existing snapshot unchanged")
+            return 0
         openalex = fetch_openalex(titles)
         found = {norm_title(pub["title"]) for pub in openalex}
         missing = [title for title in titles if norm_title(title) not in found]
