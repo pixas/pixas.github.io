@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-07 14:50 UTC",
+  "updated": "2026-11-10 03:26 UTC",
   "source": "google_scholar",
   "source_label": "Google Scholar",
   "author": "Shuyang Jiang",
-  "total_citations": 589,
+  "total_citations": 590,
   "h_index": 11,
   "i10_index": 11,
   "stale": false,
@@ -23,7 +23,7 @@
     },
     "overthinkingreductionwithdecoupledrewardsandcurriculumdatascheduling": {
       "title": "Overthinking reduction with decoupled rewards and curriculum data scheduling",
-      "num_citations": 7,
+      "num_citations": 8,
       "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:UebtZRa9Y70C",
       "source": "google_scholar"
     },
