@@ -11,10 +11,7 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 
 I am a 4th-year Ph.D. student from the School of [Computer Science](https://cs.fudan.edu.cn/), [Fudan University](https://www.fudan.edu.cn/).
-My research interests include   
-- *natural language processing*, 
-- *efficient machine learning and downstream adaptation* and 
-- *scaling of reinforcement learning*.
+My research interests center on **reasoning and RL for LLMs**, especially efficient reasoning, data-efficient RL, and self-evolving agentic systems.
 
 I am fortunate to be advised by [Prof. Yu Wang](https://yuwangsjtu.github.io/) and [Prof. Ya Zhang](https://mediabrain.sjtu.edu.cn/yazhang/). My [CV](/pdf/resume.pdf) is available here.
 

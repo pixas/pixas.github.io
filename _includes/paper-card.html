@@ -1,11 +1,11 @@
-<div class='paper-box'>
+<div class='paper-box{% if include.paper.tags contains "Oral" %} paper-box--oral{% elsif include.paper.tags contains "Spotlight" %} paper-box--spotlight{% endif %}'>
   <div class='paper-box-image'>
     <img src='{{ include.paper.image }}' alt='{{ include.paper.image_alt }}' width="100%" loading="lazy" decoding="async">
   </div>
   <div class='paper-box-text'>
     <div class='paper-tags'>
       <span class='paper-venue'>{{ include.paper.venue }} {{ include.paper.year }}</span>
-      {% for tag in include.paper.tags %}<span class='paper-tag'>{{ tag }}</span>{% endfor %}
+      {% for tag in include.paper.tags %}{% case tag %}{% when 'Oral' %}<span class='paper-tag paper-tag--oral'>Oral</span>{% when 'Spotlight' %}<span class='paper-tag paper-tag--spotlight'>Spotlight</span>{% else %}<span class='paper-tag'>{{ tag }}</span>{% endcase %}{% endfor %}
     </div>
     <p class='paper-title'>{{ include.paper.title }}</p>
     <p class='paper-authors'>{{ include.paper.authors }}</p>

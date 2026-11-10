@@ -119,8 +119,54 @@ h1:before, .anchor:before {
 }
 
 .paper-box-text .paper-tag {
-    background-color: #eaf3ec;
-    color: #1d6b3f;
+    background-color: #f1f2f4;
+    color: #6a7180;
+}
+
+.paper-box-text .paper-tag--oral,
+.paper-box-text .paper-tag--spotlight {
+    font-weight: 500;
+    padding: .15rem .6rem;
+    border: 1px solid transparent;
+}
+
+.paper-box-text .paper-tag--oral {
+    background-color: #fff0d2;
+    color: #7a4b00;
+    border-color: #e8b84b;
+}
+
+.paper-box-text .paper-tag--oral::before {
+    content: "\2605";
+    margin-right: .28rem;
+}
+
+.paper-box-text .paper-tag--spotlight {
+    background-color: #ede8fb;
+    color: #4a2f83;
+    border-color: #c3b0ef;
+}
+
+.paper-box-text .paper-tag--spotlight::before {
+    content: "\2726";
+    margin-right: .28rem;
+}
+
+.paper-box--oral,
+.paper-box--spotlight {
+    border-left: 3px solid transparent;
+    padding-left: 1rem;
+    border-radius: 4px;
+}
+
+.paper-box--oral {
+    border-left-color: #e0a437;
+    background-color: #fffcf4;
+}
+
+.paper-box--spotlight {
+    border-left-color: #8b6bd8;
+    background-color: #faf8ff;
 }
 
 .paper-box-text .paper-title {
