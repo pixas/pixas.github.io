@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-10 03:26 UTC",
+  "updated": "2026-11-11 04:00 UTC",
   "source": "google_scholar",
   "source_label": "Google Scholar",
   "author": "Shuyang Jiang",
-  "total_citations": 590,
+  "total_citations": 592,
   "h_index": 11,
   "i10_index": 11,
   "stale": false,
@@ -47,7 +47,7 @@
     },
     "reflectooltowardsreflectionawaretoolaugmentedclinicalagents": {
       "title": "Reflectool: Towards reflection-aware tool-augmented clinical agents",
-      "num_citations": 37,
+      "num_citations": 38,
       "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:eQOLeE2rZwMC",
       "source": "google_scholar"
     },
@@ -71,7 +71,7 @@
     },
     "evorevolvingretrievalforcodegeneration": {
       "title": "Evor: Evolving retrieval for code generation",
-      "num_citations": 86,
+      "num_citations": 87,
       "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:WF5omc3nYNoC",
       "source": "google_scholar"
     },
