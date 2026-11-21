@@ -36,4 +36,4 @@ I am fortunate to be advised by [Prof. Yu Wang](https://yuwangsjtu.github.io/) a
 
 # 💻 Internships
 - *2022.01 - 2023.04*, Shanghai Artificial Intelligence Laboratory, Intern Researcher
-- *2026.07 - present*, Tencent Workbuddy Team, Intern Researcher
+- *2026.07 - present*, Tencent Workbuddy Team, Qingyun Intern (青云计划实习生)
