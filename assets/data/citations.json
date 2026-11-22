@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-14 04:00 UTC",
+  "updated": "2026-11-22 04:11 UTC",
   "source": "google_scholar",
   "source_label": "Google Scholar",
   "author": "Shuyang Jiang",
-  "total_citations": 594,
+  "total_citations": 595,
   "h_index": 11,
   "i10_index": 11,
   "stale": false,
@@ -113,7 +113,7 @@
     },
     "selfevolveacodeevolutionframeworkvialargelanguagemodels": {
       "title": "Selfevolve: A code evolution framework via large language models",
-      "num_citations": 133,
+      "num_citations": 134,
       "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:d1gkVwhDpl0C",
       "source": "google_scholar"
     },
