@@ -1,11 +1,11 @@
 {
-  "updated": "2026-11-22 04:11 UTC",
+  "updated": "2026-11-24 04:00 UTC",
   "source": "google_scholar",
   "source_label": "Google Scholar",
   "author": "Shuyang Jiang",
-  "total_citations": 595,
+  "total_citations": 598,
   "h_index": 11,
-  "i10_index": 11,
+  "i10_index": 12,
   "stale": false,
   "note": "",
   "publications": {
@@ -23,7 +23,7 @@
     },
     "overthinkingreductionwithdecoupledrewardsandcurriculumdatascheduling": {
       "title": "Overthinking reduction with decoupled rewards and curriculum data scheduling",
-      "num_citations": 9,
+      "num_citations": 10,
       "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:UebtZRa9Y70C",
       "source": "google_scholar"
     },
@@ -59,7 +59,7 @@
     },
     "medstowardsmedicalslowthinkingwithselfevolvedsoftdualsidedprocesssupervision": {
       "title": "MedS: Towards Medical Slow Thinking with Self-Evolved Soft Dual-sided Process Supervision",
-      "num_citations": 50,
+      "num_citations": 52,
       "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:_FxGoFyzp5QC",
       "source": "google_scholar"
     },
