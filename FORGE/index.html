@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FORGE — Forging Obstacles into Reasoning via Guided Exploration</title>
+  <meta name="description" content="FORGE: A single-policy self-guided reinforcement learning paradigm that turns all-incorrect reasoning problems into learning signals without reference solutions or answer leakage." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <!-- Sticky Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#top" class="brand">
+        <span class="brand-mark">F</span>
+        <span class="brand-name">FORGE</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#motivation">Motivation</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#insights">Insights</a>
+        <a href="#cases">Case Studies</a>
+        <a href="#opensource">Open Source</a>
+        <a href="#citation">BibTeX</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="nav-pill" href="https://github.com/pixas/FORGE" target="_blank" rel="noopener">GitHub</a>
+        <a class="nav-pill nav-pill-primary" href="https://huggingface.co/pixas/FORGE-4B" target="_blank" rel="noopener">Model</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-bg-grid" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Technical Report &middot; Self-Guided Reinforcement Learning for Mathematical Reasoning</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="title-acronym">FORGE</span>
+          <span class="title-sub"><strong>F</strong>orging <strong>O</strong>bstacles into <strong>R</strong>easoning via <strong>G</strong>uided <strong>E</strong>xploration</span>
+        </h1>
+
+        <p class="hero-lead">
+          Turning <em>all-incorrect</em> reasoning failures into self-generated subgoals—using a single shared policy and standard verifiable <code>(q, a*)</code> supervision, with <strong>zero reference solutions</strong> and <strong>zero test-time overhead</strong>.
+        </p>
+
+        <!-- Authors -->
+        <div class="authors-block">
+          <div class="authors-list">
+            <span>Shuyang Jiang<sup>1,2,*</sup></span>
+            <span>Wei Liu<sup>2,*</sup></span>
+            <span>Peixian Chen<sup>2</sup></span>
+            <span>Weibo Gu<sup>2</sup></span>
+            <span>Xing Sun<sup>2</sup></span>
+            <span>Qiang Lin<sup>2</sup></span>
+            <span>Ya Zhang<sup>3,&dagger;</sup></span>
+            <span>Yanfeng Wang<sup>3</sup></span>
+            <span>Yu Wang<sup>3,&dagger;</sup></span>
+          </div>
+          <div class="affiliations">
+            <span><sup>1</sup>Fudan University</span>
+            <span class="sep">&middot;</span>
+            <span><sup>2</sup>Tencent Youtu Lab</span>
+            <span class="sep">&middot;</span>
+            <span><sup>3</sup>Shanghai Jiao Tong University</span>
+          </div>
+          <div class="author-notes">
+            <span><sup>*</sup>Equal contribution</span>
+            <span class="sep">&middot;</span>
+            <span><sup>&dagger;</sup>Corresponding authors: <code>{ya_zhang, yuwangsjtu}@sjtu.edu.cn</code></span>
+          </div>
+        </div>
+
+        <!-- Action Pills -->
+        <div class="action-bar">
+          <a class="btn btn-primary" href="./assets/FORGE_paper.pdf" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            Paper PDF
+          </a>
+          <a class="btn btn-dark" href="https://github.com/pixas/FORGE" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.97 10.97 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.83 1.18 3.09 0 4.41-2.69 5.39-5.26 5.67.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            Code (GitHub)
+          </a>
+          <a class="btn btn-outline" href="https://huggingface.co/pixas/FORGE-4B" target="_blank" rel="noopener">
+            <span class="hf-dot"></span>
+            FORGE-4B (Stage 2)
+          </a>
+          <a class="btn btn-outline" href="https://huggingface.co/pixas/FORGE-4B-Stage1" target="_blank" rel="noopener">
+            <span class="hf-dot"></span>
+            FORGE-4B-Stage1
+          </a>
+          <a class="btn btn-outline" href="https://huggingface.co/datasets/pixas/FORGE-Math-RL" target="_blank" rel="noopener">
+            <span class="hf-dot hf-dot-amber"></span>
+            FORGE-Math-RL Dataset
+          </a>
+        </div>
+
+        <!-- Headline KPI Strip -->
+        <div class="kpi-grid">
+          <div class="kpi-card kpi-highlight">
+            <div class="kpi-top">
+              <span class="kpi-value">58.37%</span>
+              <span class="kpi-delta">+5.05 pp</span>
+            </div>
+            <div class="kpi-label">Micro Avg@32 (Pass@1)</div>
+            <div class="kpi-sub">Surpasses official <code>Qwen3.5-4B</code> across 7 competition, Olympiad &amp; research math suites</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-top">
+              <span class="kpi-value">83.33%</span>
+              <span class="kpi-delta">+12.18 pp</span>
+            </div>
+            <div class="kpi-label">Micro Pass@32 Coverage</div>
+            <div class="kpi-sub">Reaches <strong>91.99%</strong> at Pass@512 with zero crossover against Base across all \(k \in [1, 512]\)</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-top">
+              <span class="kpi-value">89.1%</span>
+              <span class="kpi-delta kpi-delta-amber">71.6% midway</span>
+            </div>
+            <div class="kpi-label">Extractable Bottlenecks</div>
+            <div class="kpi-sub">Audited failed prefixes expose concrete subproblems; <strong>69.2%</strong> solved unassisted by Epoch 3</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-top">
+              <span class="kpi-value">&lt;20K &middot; 500</span>
+              <span class="kpi-delta kpi-delta-slate">0 ref traces</span>
+            </div>
+            <div class="kpi-label">Open-Source Data &amp; Steps</div>
+            <div class="kpi-sub">Trained directly from <code>Qwen3.5-4B-Base</code> with verifiable <code>(q, a*)</code> only</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Motivation & Teaser Section -->
+    <section class="section" id="motivation">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">01 &middot; Core Insight</span>
+          <h2>All-Incorrect Does Not Mean No Progress</h2>
+          <p class="section-desc">
+            In critic-free RLVR (GRPO), any prompt where all \(G\) sampled attempts fail yields zero relative advantage (\(\hat{A}_{i,t} = 0\)) and zero policy gradient. Standard remedies either discard these frontier problems (DAPO) or rely on privileged reference solutions (HATCH, SAGE). We ask: <strong>do the failed attempts themselves already contain the structure needed to unlock learning?</strong>
+          </p>
+        </div>
+
+        <div class="figure-card">
+          <img
+            src="./assets/intro_sage_hint_audit.png"
+            alt="FORGE turns reasoning impasses into learning signals and stronger unassisted performance"
+            class="zoomable-img"
+            loading="lazy"
+          />
+          <div class="figure-caption">
+            <strong>Figure 1. FORGE turns reasoning impasses into learning signals and stronger unassisted performance.</strong>
+            <strong>(a)</strong> A real failed rollout on a cookie-passing problem exposes an intermediate subgoal that unlocks \(1/16\) correct guided attempts on a \(0/16\) problem.
+            <strong>(b)</strong> Source-blinded audit reveals extractable bottlenecks in <strong>89.1%</strong> of failed prefixes (71.6% midway impasses); during training, guided unlocking more than doubles and <strong>69.2%</strong> (2,432/3,513) of Epoch-1 all-incorrect problems are solved unassisted by Epoch 3.
+            <strong>(c)</strong> Downstream validation trajectory on BeyondAIME, scaled Pass@1 &amp; Pass@32, and consistent accuracy gains across every response-length regime up to 80K tokens.
+          </div>
+        </div>
+
+        <div class="contrib-grid">
+          <article class="contrib-card">
+            <div class="contrib-num">01</div>
+            <h3>Recoverable Reasoning Impasses</h3>
+            <p>
+              Our source-blinded audit of 250 failed prefixes demonstrates that <strong>91.9%</strong> establish valid setups and <strong>89.1%</strong> reach concrete intermediate bottlenecks—exposing actionable subproblems without ever touching a reference solution.
+            </p>
+          </article>
+          <article class="contrib-card">
+            <div class="contrib-num">02</div>
+            <h3>Single-Policy Self-Guided RL</h3>
+            <p>
+              FORGE unites <strong>reference-free subgoal generation</strong>, <strong>policy-driven semantic clustering &amp; selection</strong>, and a <strong>uniform unlocking reward</strong> to co-train Hinter and Solver roles inside one shared policy \(\pi_\theta\).
+            </p>
+          </article>
+          <article class="contrib-card">
+            <div class="contrib-num">03</div>
+            <h3>Accuracy &amp; Exploration Breadth</h3>
+            <p>
+              Under matched 350-step budgets, FORGE beats GRPO, DAPO, HATCH, and SAGE; with 500-step context scaling (&lt;20K open data), it surpasses official <code>Qwen3.5-4B</code> in both Pass@1 (+5.05 pp) and Pass@32 (+12.18 pp), preserving exploration up to Pass@512.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Method Section -->
+    <section class="section section-alt" id="method">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">02 &middot; Method &amp; Theory</span>
+          <h2>The FORGE Single-Policy Paradigm</h2>
+          <p class="section-desc">
+            A single shared policy \(\pi_\theta\) alternates between solving problems (<strong>Solver</strong>) and turning its own failed reasoning prefixes into question-only subgoals (<strong>Hinter</strong>). Both roles are verified exclusively against the original ground-truth answer \(a^\star\) and updated in a single joint step. At test time, FORGE performs standard unhinted solving with zero extra overhead.
+          </p>
+        </div>
+
+        <div class="figure-card">
+          <img
+            src="./assets/method_overview_loop_v2.png"
+            alt="Overview of FORGE training paradigm"
+            class="zoomable-img"
+            loading="lazy"
+          />
+          <div class="figure-caption">
+            <strong>Figure 2. Overview of the FORGE training paradigm.</strong>
+            Natural rollouts retain mixed groups, discard all-correct groups, and route all-incorrect (\(0/G\)) problems to reference-free subgoal extraction. Valid subgoals are semantically clustered and used to sample guided solver rollouts on \(q_j + \hat{z}_{j,k}\). Distinct semantic clusters are prioritized for the solver batch, while hinter outputs receive \(+\alpha\) (mixed guided group) or \(-\alpha\) (uniform/invalid) for the joint policy gradient update.
+          </div>
+        </div>
+
+        <!-- Interactive 4-Pillar Method Explorer -->
+        <div class="tabs-shell" data-tab-group="method">
+          <div class="tab-bar" role="tablist">
+            <button class="tab-btn active" role="tab" data-tab="ref-free">1. Reference-Free Subgoals</button>
+            <button class="tab-btn" role="tab" data-tab="semantic">2. Semantic Selection</button>
+            <button class="tab-btn" role="tab" data-tab="joint-rl">3. Unlocking Reward &amp; Joint RL</button>
+            <button class="tab-btn" role="tab" data-tab="theory">4. Theoretical Insight (Theorem 1)</button>
+          </div>
+
+          <!-- Tab 1 -->
+          <div class="tab-panel active" data-panel="ref-free">
+            <div class="panel-grid">
+              <div class="panel-text">
+                <h3>Eliminating Answer Shortcuts at the Source</h3>
+                <p>
+                  Whenever a natural group finishes all-incorrect (\(p_{\mathrm{nat}}(q)=0\)), the live policy acts as a <strong>Hinter</strong> conditioned <em>only</em> on the original question \(q\) and each failed thinking prefix \(\tau_i = \operatorname{think}(o_i)\)—strictly withholding both reference solutions and the ground-truth answer \(a^\star\).
+                </p>
+                <ul class="key-points">
+                  <li><strong>Why answer anchoring fails:</strong> Exposing \(a^\star\) lets the hinter craft trivial answer-proxy shortcuts or superficial restatements to harvest positive rewards without genuine decomposition.</li>
+                  <li><strong>Why online leakage judges degrade:</strong> As reasoning chains lengthen during training, an online LLM judge increasingly hits token-budget truncation, eroding filtering precision back down to 81.9% constructive guidance.</li>
+                  <li><strong>Reference-free advantage:</strong> By withholding \(a^\star\) altogether, FORGE climbs to <strong>90.4% constructive subgoals</strong> with zero auxiliary judge overhead.</li>
+                </ul>
+              </div>
+              <div class="panel-stat-box">
+                <div class="mini-metric">
+                  <span class="mini-val">90.4%</span>
+                  <span class="mini-lbl">Constructive subgoal quality under reference-free joint RL</span>
+                </div>
+                <div class="mini-metric">
+                  <span class="mini-val">11.8</span>
+                  <span class="mini-lbl">Avg. distinct semantic clusters per all-incorrect problem (vs. 1 path in SAGE)</span>
+                </div>
+                <div class="mini-metric">
+                  <span class="mini-val">41.1% &rarr; 84.3%</span>
+                  <span class="mini-lbl">More than 2&times; rescue coverage when retaining all semantic clusters</span>
+                </div>
+              </div>
+            </div>
+            <div class="figure-card figure-compact">
+              <img src="./assets/subgoal_design_analysis.png" alt="Subgoal design analysis" class="zoomable-img" loading="lazy" />
+              <div class="figure-caption">
+                <strong>Figure 3.</strong> (a) Reference-free joint RL maintains superior constructive quality over solver-only updates and answer-anchored extraction (even with an online leakage judge). (b) Problem-adaptive semantic cluster breadth vs. single-path SAGE. (c) Retaining all clusters more than doubles mixed-group rescue probability.
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 2 -->
+          <div class="tab-panel" data-panel="semantic">
+            <div class="panel-grid">
+              <div class="panel-text">
+                <h3>Semantic Clustering &amp; Layer Round-Robin Selection</h3>
+                <p>
+                  Failed rollouts often discover genuinely distinct mathematical entry points—while other rollouts merely paraphrase the same subproblem. The live policy groups candidate subgoals into semantic clusters \(\{\mathcal{C}_1, \dots, \mathcal{C}_M\}\) (merging only mathematically equivalent questions under identical assumptions).
+                </p>
+                <ul class="key-points">
+                  <li><strong>Inline guided rollouts:</strong> Each surviving subgoal appends a lightweight scaffold <code>(Hint: Try to solve the following subproblem first; ...)</code> and runs \(G=16\) solver rollouts directly in the training step—eliminating separate probing phases.</li>
+                  <li><strong>Coverage before repeats:</strong> When backfilling remaining solver slots \(B_{\mathrm{rem}} = B - |\mathcal{G}_{\mathrm{nat}}^{\mathrm{mix}}|\), FORGE selects the lowest-pass-rate mixed group from every distinct semantic cluster across source problems before admitting any cluster's second group.</li>
+                  <li><strong>Controlled A/B gain:</strong> Starting from the identical mid-training checkpoint, semantic selection leaves fewer natural groups all-incorrect online and improves held-out unassisted micro <strong>Pass@1 by +1.4 pp</strong> and <strong>Pass@k by +1.9 pp</strong>.</li>
+                </ul>
+              </div>
+              <div class="panel-stat-box">
+                <div class="mini-metric">
+                  <span class="mini-val">+1.4 pp</span>
+                  <span class="mini-lbl">Held-out 32K micro Pass@1 gain over cluster-agnostic selection</span>
+                </div>
+                <div class="mini-metric">
+                  <span class="mini-val">+1.9 pp</span>
+                  <span class="mini-lbl">Held-out 32K micro Pass@k coverage gain from complementary entry points</span>
+                </div>
+                <div class="mini-metric">
+                  <span class="mini-val">99.53%</span>
+                  <span class="mini-lbl">Effective solver batch utilization (&sigma;<sub>r</sub> &gt; 0) without 3&times; prompt oversampling</span>
+                </div>
+              </div>
+            </div>
+            <div class="figure-card figure-compact">
+              <img src="./assets/semantic_selection_ab.png" alt="Semantic selection controlled ablation" class="zoomable-img" loading="lazy" />
+              <div class="figure-caption">
+                <strong>Figure 4. Controlled A/B comparison of semantic selection.</strong> Prioritizing distinct semantic clusters reduces online all-incorrect groups (a) and widens unassisted Pass@1 (b) and Pass@k (c) leads under identical batch budgets.
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 3 -->
+          <div class="tab-panel" data-panel="joint-rl">
+            <div class="panel-grid">
+              <div class="panel-text">
+                <h3>Uniform Unlocking Reward &amp; Sequence-Weighted Joint Update</h3>
+                <p>
+                  Both Solver and Hinter are trained by the exact same original-answer verifier \(r^{\mathrm{solve}}(q, o) = \mathbb{I}(\operatorname{Verify}(o, a^\star) = 1)\). A subgoal earns full positive credit as soon as it restores a learnable mixed group (\(0 < p_{\mathrm{guide}} < 1\)):
+                </p>
+                <div class="math-box">
+                  $$r^{\mathrm{hint}}(u) = \begin{cases} +\alpha, & \text{if } 0 < p_{\mathrm{guide}}(q, \hat{z}_{q,k}) < 1, \\ -\alpha, & \text{if invalid format or } p_{\mathrm{guide}}(q, \hat{z}_{q,k}) \in \{0, 1\}. \end{cases}$$
+                </div>
+                <p>
+                  Hinter advantages use a batch-centered REINFORCE++ baseline without std normalization (\(\hat{A}^{\mathrm{hint}}_{m,t} = r^{\mathrm{hint}}(u_m) - \bar{r}^{\mathrm{hint}}\)), preserving \(\alpha=0.3\) as an explicit gradient scale. Solver and Hinter objectives are token-averaged within each pool and combined by sequence count:
+                </p>
+                <div class="math-box">
+                  $$\mathcal{J}_{\mathrm{Joint}}(\theta) = \frac{N_{\mathrm{solve}}}{N_{\mathrm{solve}} + N_{\mathrm{hint}}}\,\mathcal{J}_{\mathrm{solve}}(\theta) + \frac{N_{\mathrm{hint}}}{N_{\mathrm{solve}} + N_{\mathrm{hint}}}\,\mathcal{J}_{\mathrm{hint}}(\theta).$$
+                </div>
+              </div>
+              <div class="panel-stat-box">
+                <div class="mini-metric">
+                  <span class="mini-val">88.0%</span>
+                  <span class="mini-lbl">Constructive share of 1/16 frontier breakthroughs—matching 2–6/16 and beating 7–15/16!</span>
+                </div>
+                <div class="mini-metric">
+                  <span class="mini-val">+1.22 / +2.88 pp</span>
+                  <span class="mini-lbl">Micro Avg@32 / Pass@32 gain of direct Hinter RL (&alpha;=0.3) over Solver-only (&alpha;=0)</span>
+                </div>
+                <div class="mini-metric">
+                  <span class="mini-val">+10.2 pp</span>
+                  <span class="mini-lbl">ArXivMath 0626 Pass@32 boost from direct Hinter RL</span>
+                </div>
+              </div>
+            </div>
+            <div class="figure-card figure-compact">
+              <img src="./assets/hinter_ablation_reward.png" alt="Hinter RL ablation and uniform reward audit" class="zoomable-img" loading="lazy" />
+              <div class="figure-caption">
+                <strong>Figure 5. Direct Hinter RL ablation and pass-rate-stratified audit.</strong> (a, b) Default \(\alpha=0.3\) outperforms \(\alpha=0.1\) and solver-only \(\alpha=0\), with largest coverage gains on Olympiad &amp; research suites. (c) \(1/16\) frontier breakthroughs match moderate pass rates in quality while outperforming high pass-rate groups, justifying uniform \(+\alpha\) credit.
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 4 -->
+          <div class="tab-panel" data-panel="theory">
+            <div class="theory-layout">
+              <div class="theory-intro">
+                <h3>Theorem 1: Mode-Crowding under Natural Backfilling vs. Single-Sample Rescue</h3>
+                <p>
+                  Both DAPO and FORGE fill remaining solver batch slots with mixed-outcome groups (\(\sigma_r > 0\)). Why does FORGE's rescued backfilling unlock hard problems while DAPO's natural backfilling stagnates? Consider a shared softmax policy over three reasoning modes: <strong>erroneous (\(a\))</strong>, <strong>shallow (\(b\))</strong> (solves easy \(q_E\) only), and <strong>deep (\(c\))</strong> (solves both \(q_E\) and hard \(q_H\)).
+                </p>
+              </div>
+              <div class="theory-compare">
+                <div class="theory-card theory-dapo">
+                  <div class="theory-tag">Natural Backfilling (DAPO on \(q_E\))</div>
+                  <h4>Crowds Out Deep Reasoning Mode \(c\)</h4>
+                  <p>
+                    Because binary verification on easy prompts \(q_E\) rewards shallow \(b\) and deep \(c\) identically, when \(c\) is scarce (\(n_c=0\)), positive credit flows predominantly to \(z_b\), expanding the softmax normalizer faster than \(e^{z_c}\):
+                  </p>
+                  <div class="math-box math-box-sm">
+                    $$\nabla_z p_c^\top \hat{g}_{q_E} = -\lambda_{n_b}\, p_c (p_b - p_a) < 0$$
+                  </div>
+                  <p class="theory-note">
+                    Even in expectation over mixed groups, natural backfilling can strictly <strong>shrink \(p_c\)</strong> and <strong>increase</strong> the dataset-wide all-incorrect rate \(F_G(z)\).
+                  </p>
+                </div>
+                <div class="theory-card theory-forge">
+                  <div class="theory-tag">Rescued Backfilling (FORGE on \(\tilde{q}_H\))</div>
+                  <h4>Single-Sample Rescue Flips Gradient Unconditionally</h4>
+                  <p>
+                    On a subgoal-guided hard prompt \(\tilde{q}_H\), binary verification assigns \(r=0\) (negative advantage) to shallow mode \(b\) and \(r=1\) <em>exclusively</em> to deep mode \(c\). Sampling \(c\) even <strong>once (\(k=1\))</strong> reverses the update direction:
+                  </p>
+                  <div class="math-box math-box-sm">
+                    $$\nabla_z p_c^\top \hat{g}_{\tilde{q}_H} \ge \lambda_k\, p_c(1 - p_c) > 0, \qquad \nabla_z F_G^\top \hat{g}_{\tilde{q}_H} < 0$$
+                  </div>
+                  <p class="theory-note">
+                    Every realized mixed guided group (\(1 \le k \le G-1\)) strictly grows \(p_c\), improves expected dataset reward \(J(z)\), and lowers \(F_G(z)\)—the theoretical basis for rewarding \(1/G\) breakthroughs uniformly.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="section" id="results">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">03 &middot; Empirical Results</span>
+          <h2>Stronger Controlled RL &amp; Surpassing Official Qwen3.5-4B</h2>
+          <p class="section-desc">
+            Evaluated across <strong>7 challenging benchmarks (312 problems)</strong> spanning AIME 25/26, HMMT Feb 25/26, BeyondAIME, and uncontaminated May/June 2026 ArXivMath research problems under an 81,920-token budget (\(K=32\) rollouts, EvalScope).
+          </p>
+        </div>
+
+        <!-- Interactive Benchmark Chart -->
+        <div class="chart-card">
+          <div class="chart-toolbar">
+            <div>
+              <h3 class="chart-title" id="chartTitle">Stage-2 Scaling: FORGE-4B vs. Official Qwen3.5-4B &amp; Base</h3>
+              <p class="chart-subtitle" id="chartSubtitle">Problem-level Avg@32 (Pass@1, %) across all seven benchmarks and Micro Average</p>
+            </div>
+            <div class="chart-controls">
+              <div class="segmented" role="group" aria-label="Comparison view">
+                <button class="seg-btn active" data-view="stage2">Stage 2 vs. Official</button>
+                <button class="seg-btn" data-view="stage1">Stage 1 Controlled RL</button>
+              </div>
+              <div class="segmented" role="group" aria-label="Metric toggle">
+                <button class="seg-btn active" data-metric="avg32">Pass@1 (Avg@32)</button>
+                <button class="seg-btn" data-metric="pass32">Pass@32</button>
+              </div>
+            </div>
+          </div>
+          <div class="chart-legend" id="chartLegend"></div>
+          <div class="chart-canvas-wrap">
+            <svg id="benchmarkChart" class="bench-svg" viewBox="0 0 980 355" role="img" aria-label="Benchmark performance comparison chart"></svg>
+          </div>
+        </div>
+
+        <!-- Full Publication Table -->
+        <div class="table-card">
+          <div class="table-header">
+            <h3>Complete Main Results (Table 2)</h3>
+            <span class="table-note">81,920-token budget &middot; \(K=32\) rollouts &middot; Micro Average weights all 312 problems equally &middot; <strong>Bold</strong> = overall best, <u>underline</u> = Stage-1 best</span>
+          </div>
+          <div class="table-scroll">
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th rowspan="2" class="col-model">Model / Method</th>
+                  <th colspan="2">AIME 25</th>
+                  <th colspan="2">AIME 26</th>
+                  <th colspan="2">HMMT Feb25</th>
+                  <th colspan="2">HMMT Feb26</th>
+                  <th colspan="2">BeyondAIME</th>
+                  <th colspan="2">ArXivMath 0526</th>
+                  <th colspan="2">ArXivMath 0626</th>
+                  <th colspan="2" class="col-micro">Micro Average</th>
+                </tr>
+                <tr class="subhead">
+                  <th>Avg@32</th><th>P@32</th>
+                  <th>Avg@32</th><th>P@32</th>
+                  <th>Avg@32</th><th>P@32</th>
+                  <th>Avg@32</th><th>P@32</th>
+                  <th>Avg@32</th><th>P@32</th>
+                  <th>Avg@32</th><th>P@32</th>
+                  <th>Avg@32</th><th>P@32</th>
+                  <th class="col-micro">Avg@32</th><th class="col-micro">P@32</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="group-row"><td colspan="17">Reference Models</td></tr>
+                <tr>
+                  <td class="col-model"><code>Qwen3.5-4B-Base</code></td>
+                  <td>81.35</td><td><strong>96.67</strong></td>
+                  <td>82.50</td><td><strong>96.67</strong></td>
+                  <td>74.27</td><td><strong>100.00</strong></td>
+                  <td>68.47</td><td>87.88</td>
+                  <td>56.66</td><td>85.00</td>
+                  <td>24.84</td><td>62.50</td>
+                  <td>10.91</td><td>55.10</td>
+                  <td class="col-micro">53.20</td><td class="col-micro">81.41</td>
+                </tr>
+                <tr>
+                  <td class="col-model"><code>Qwen3.5-4B</code> (Official)</td>
+                  <td>85.00</td><td>90.00</td>
+                  <td>84.17</td><td>93.33</td>
+                  <td>76.46</td><td>90.00</td>
+                  <td>62.22</td><td>84.85</td>
+                  <td>56.31</td><td>74.00</td>
+                  <td>24.06</td><td>50.00</td>
+                  <td>12.63</td><td>36.73</td>
+                  <td class="col-micro">53.32</td><td class="col-micro">71.15</td>
+                </tr>
+                <tr class="group-row"><td colspan="17">Stage 1: Controlled RL Comparison on <code>Qwen3.5-4B-Base</code> (350 Steps, 16K &rarr; 32K Context)</td></tr>
+                <tr>
+                  <td class="col-model">GRPO</td>
+                  <td>56.25</td><td>86.67</td>
+                  <td>64.48</td><td>86.67</td>
+                  <td>41.15</td><td>73.33</td>
+                  <td>41.10</td><td>84.85</td>
+                  <td>39.66</td><td>67.00</td>
+                  <td>18.75</td><td>47.50</td>
+                  <td>9.25</td><td>48.98</td>
+                  <td class="col-micro">36.48</td><td class="col-micro">67.95</td>
+                </tr>
+                <tr>
+                  <td class="col-model">DAPO</td>
+                  <td>54.79</td><td>86.67</td>
+                  <td>67.08</td><td>90.00</td>
+                  <td>42.29</td><td>70.00</td>
+                  <td>46.12</td><td>81.82</td>
+                  <td>40.59</td><td>68.00</td>
+                  <td>20.31</td><td>50.00</td>
+                  <td>8.74</td><td>36.73</td>
+                  <td class="col-micro">37.65</td><td class="col-micro">66.35</td>
+                </tr>
+                <tr>
+                  <td class="col-model">HATCH</td>
+                  <td>58.54</td><td>83.33</td>
+                  <td>66.88</td><td>90.00</td>
+                  <td>38.44</td><td>70.00</td>
+                  <td>46.12</td><td>78.79</td>
+                  <td>40.75</td><td>71.00</td>
+                  <td>20.63</td><td>47.50</td>
+                  <td>9.25</td><td>42.86</td>
+                  <td class="col-micro">37.79</td><td class="col-micro">67.31</td>
+                </tr>
+                <tr>
+                  <td class="col-model">SAGE</td>
+                  <td>79.06</td><td>93.33</td>
+                  <td>82.60</td><td><u><strong>96.67</strong></u></td>
+                  <td><u>66.04</u></td><td>86.67</td>
+                  <td>60.61</td><td><u><strong>90.91</strong></u></td>
+                  <td>51.44</td><td>78.00</td>
+                  <td>27.34</td><td>67.50</td>
+                  <td>13.33</td><td>48.98</td>
+                  <td class="col-micro">50.39</td><td class="col-micro">77.56</td>
+                </tr>
+                <tr class="row-forge-s1">
+                  <td class="col-model"><strong>FORGE</strong> (Stage 1)</td>
+                  <td><u>80.31</u></td><td><u><strong>96.67</strong></u></td>
+                  <td><u>82.71</u></td><td><u><strong>96.67</strong></u></td>
+                  <td>65.52</td><td><u>93.33</u></td>
+                  <td><u>62.88</u></td><td>87.88</td>
+                  <td><u>53.38</u></td><td><u>84.00</u></td>
+                  <td><u>28.75</u></td><td><u><strong>70.00</strong></u></td>
+                  <td><u>13.90</u></td><td><u><strong>63.27</strong></u></td>
+                  <td class="col-micro"><u>51.60</u></td><td class="col-micro"><u>82.69</u></td>
+                </tr>
+                <tr class="group-row"><td colspan="17">Stage 2: Long-Horizon Context Scaling on <code>Qwen3.5-4B-Base</code> (500 Steps, 48K &rarr; 64K Context)</td></tr>
+                <tr class="row-forge-s2">
+                  <td class="col-model"><strong>FORGE</strong> (Stage 2)</td>
+                  <td><strong>86.77</strong></td><td><strong>96.67</strong></td>
+                  <td><strong>89.48</strong></td><td><strong>96.67</strong></td>
+                  <td><strong>78.33</strong></td><td>93.33</td>
+                  <td><strong>69.70</strong></td><td><strong>90.91</strong></td>
+                  <td><strong>59.59</strong></td><td><strong>87.00</strong></td>
+                  <td><strong>34.92</strong></td><td>67.50</td>
+                  <td><strong>18.75</strong></td><td>61.22</td>
+                  <td class="col-micro"><strong>58.37</strong></td><td class="col-micro"><strong>83.33</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Significance Figure -->
+        <div class="figure-card">
+          <img src="./assets/scaled_significance_row.png" alt="Statistically significant accuracy gains across all seven benchmarks" class="zoomable-img" loading="lazy" />
+          <div class="figure-caption">
+            <strong>Figure 6. Accuracy gains across all seven benchmarks after context scaling.</strong>
+            FORGE improves Avg@32 over both <code>Qwen3.5-4B-Base</code> and official <code>Qwen3.5-4B</code> on every benchmark, with statistically significant paired-permutation gains on six of seven benchmarks—including both research-level ArXivMath suites.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section class="section section-alt" id="insights">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">04 &middot; Deep-Dive Diagnostics</span>
+          <h2>Training Dynamics, Exploration Scaling &amp; Data Efficiency</h2>
+          <p class="section-desc">
+            Beyond headline scores, FORGE preserves lexical diversity during RL, achieves near-100% effective batch utilization without prompt oversampling, and sustains test-time scaling all the way to Pass@512.
+          </p>
+        </div>
+
+        <div class="tabs-shell" data-tab-group="insights">
+          <div class="tab-bar" role="tablist">
+            <button class="tab-btn active" role="tab" data-tab="dynamics">Training Dynamics &amp; Diversity</button>
+            <button class="tab-btn" role="tab" data-tab="pass512">High-Budget Pass@512 Scaling</button>
+            <button class="tab-btn" role="tab" data-tab="curriculum">Two-Stage Open Data Curriculum</button>
+          </div>
+
+          <div class="tab-panel active" data-panel="dynamics">
+            <div class="insight-pills">
+              <div class="insight-pill"><strong>11.33%</strong> natural all-incorrect ratio at 32K (<strong>-40% to -44%</strong> vs. DAPO &amp; GRPO)</div>
+              <div class="insight-pill"><strong>99.53%</strong> effective solver batch utilization using <strong>128 prompts</strong> (vs. DAPO's 384)</div>
+              <div class="insight-pill"><strong>-17.3%</strong> lower BPE 4-gram overlap across unassisted rollouts vs. DAPO</div>
+            </div>
+            <div class="figure-card figure-compact">
+              <img src="./assets/exp_training_overview.png" alt="Training dynamics and trajectory overlap" class="zoomable-img" loading="lazy" />
+              <div class="figure-caption">
+                <strong>Figure 7. Training dynamics and natural trajectory overlap across 350 RL steps.</strong>
+                (a) FORGE drives the natural all-incorrect ratio down to 11.33%, breaking through frontier problems where GRPO, DAPO, and HATCH plateau near 20%. (b) FORGE achieves 99.53% non-zero-variance batch utilization without 3&times; oversampling. (c, d) Reference-free subgoals and semantic clustering avoid target-anchored homogenization, maintaining markedly lower trajectory overlap than DAPO and answer-anchored extraction.
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-panel="pass512">
+            <div class="insight-pills">
+              <div class="insight-pill"><strong>Zero Crossover</strong> vs. Base across every budget \(k \in \{1, 2, \dots, 512\}\)</div>
+              <div class="insight-pill"><strong>91.99%</strong> overall coverage (<strong>33/33</strong> HMMT Feb26 &middot; <strong>98/100</strong> BeyondAIME)</div>
+              <div class="insight-pill"><strong>2&times; Sampling Efficiency</strong> on ArXivMath: FORGE @ k=256 matches Base @ k=512</div>
+            </div>
+            <div class="figure-card figure-compact">
+              <img src="./assets/exp_pass512_scaling.png" alt="High-budget test-time Pass@k scaling up to k=512" class="zoomable-img" loading="lazy" />
+              <div class="figure-caption">
+                <strong>Figure 8. Test-time Pass@k exploration scaling from \(k=1\) to \(k=512\).</strong>
+                Whereas conventional post-training (<code>Qwen3.5-4B</code>) trails Base by 10.26 pp at Pass@32, FORGE lifts single-sample accuracy by +5.17 pp while staying above Base through \(k=512\) (90.09% pooled coverage across the 222 unsaturated Olympiad &amp; research problems).
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-panel="curriculum">
+            <div class="curriculum-grid">
+              <div class="curr-card">
+                <div class="curr-badge">Stage 1 &middot; Steps 0–349 (16K &rarr; 32K)</div>
+                <h4>14,809 Verifiable Math Prompts</h4>
+                <p>Curated from 6 public open-source pools after solvability verification, difficulty filtering (removing 8/8 saturated items), and holding out 1,747 frontier (0/8) problems:</p>
+                <ul class="curr-list">
+                  <li><span>NemotronRL-math-stack_overflow</span><strong>5,148 (34.8%)</strong></li>
+                  <li><span>Big-Math-RL-Verified</span><strong>4,243 (28.7%)</strong></li>
+                  <li><span>NemotronRL-math-OpenMathReasoning</span><strong>2,651 (17.9%)</strong></li>
+                  <li><span>RLVR-Linearity</span><strong>1,401 (9.5%)</strong></li>
+                  <li><span>MATH</span><strong>959 (6.5%)</strong></li>
+                  <li><span>mAceReason-Math</span><strong>407 (2.8%)</strong></li>
+                </ul>
+              </div>
+              <div class="curr-arrow" aria-hidden="true">
+                <span>Step 350 Refresh</span>
+                <div class="arrow-pills">
+                  <span class="ap-drop">-2,653 saturated (16/16)</span>
+                  <span class="ap-add">+1,747 held-out 0/8</span>
+                  <span class="ap-add">+2,900 new frontier</span>
+                </div>
+              </div>
+              <div class="curr-card curr-card-accent">
+                <div class="curr-badge">Stage 2 &middot; Steps 350–499 (48K &rarr; 64K)</div>
+                <h4>16,803 Refreshed Frontier Prompts</h4>
+                <p>Prunes mastered Stage-1 items and injects strictly deduplicated (<code>cos &lt; 0.93</code>) &amp; benchmark-decontaminated (<code>cos &lt; 0.60</code>) frontier math problems:</p>
+                <ul class="curr-list">
+                  <li><span>Retained Unsaturated Stage-1</span><strong>12,156 (72.3%)</strong></li>
+                  <li><span>Re-introduced Held-out Frontier (0/8)</span><strong>1,747 (10.4%)</strong></li>
+                  <li><span>ArXivMath-Train</span><strong>1,099 (6.5%)</strong></li>
+                  <li><span>QuestA</span><strong>944 (5.6%)</strong></li>
+                  <li><span>NemotronRL-Math-v2</span><strong>857 (5.1%)</strong></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="section" id="cases">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">05 &middot; Qualitative Case Studies</span>
+          <h2>Inside FORGE: How Failed Rollouts Become Breakthroughs</h2>
+          <p class="section-desc">
+            Real training trajectories from our online RL logs and source-blinded audits illustrating multi-entry complementarity and why reference-free extraction prevents answer leakage.
+          </p>
+        </div>
+
+        <div class="tabs-shell" data-tab-group="cases">
+          <div class="tab-bar" role="tablist">
+            <button class="tab-btn active" role="tab" data-tab="case-complement">Case 1: 4&times;4 Board Complementarity (SAGE 0/16 vs. FORGE 2/16)</button>
+            <button class="tab-btn" role="tab" data-tab="case-spoilers">Case 2: Answer-Anchored Spoilers vs. Reference-Free Subgoals</button>
+          </div>
+
+          <!-- Case 1 -->
+          <div class="tab-panel active" data-panel="case-complement">
+            <div class="problem-banner">
+              <div class="problem-label">Frontier Training Problem (Step 309 &middot; Natural Rollouts: 0/16 Correct)</div>
+              <p class="problem-text">
+                How many ways can a \(4 \times 4\) board be filled with nonnegative integers such that the sum of the numbers in each row and each column is \(3\)?
+                <span class="gold-tag">Ground Truth: \(a^\star = 2008\)</span>
+              </p>
+            </div>
+
+            <div class="case-split">
+              <div class="case-box case-fail">
+                <div class="case-head">
+                  <span class="status-pill status-fail">SAGE (Level-3 Reference Hint) &middot; 0 / 16</span>
+                </div>
+                <p class="case-quote">
+                  &ldquo;Think about using the stars and bars method to first count the row configurations, then consider how the column sums constrain the choices for subsequent rows...&rdquo;
+                </p>
+                <p class="case-explain">
+                  Anchoring all 16 guided rollouts to one stars-and-bars path causes severe branching over asymmetric column-sum residuals; every guided attempt fails.
+                </p>
+              </div>
+              <div class="case-box case-pass">
+                <div class="case-head">
+                  <span class="status-pill status-pass">FORGE (9 Semantic Clusters &rarr; Cluster 6) &middot; 2 / 16 Unlocked</span>
+                </div>
+                <p class="case-quote">
+                  &ldquo;How many ways can a \(2 \times 2\) board be filled with nonnegative integers such that the sum of the numbers in each row and each column is \(3\)?&rdquo;
+                </p>
+                <p class="case-explain">
+                  While 8 other clusters (including stars-and-bars and \(3\times 3\) boards) score 0/16, Cluster 6's \(2\times 2\) subgoal prompts the solver to split the \(4\times 4\) board into top &amp; bottom \(2\times 4\) halves by column-sum profile \(\mathbf{c}\), cleanly summing \(96 + 864 + 224 + 224 + 600 = \mathbf{2008}\).
+                </p>
+              </div>
+            </div>
+
+            <div class="mini-cluster-strip">
+              <span class="cluster-chip">C0: Binary {0,1} 4&times;4 &middot; 0/16</span>
+              <span class="cluster-chip">C1: Single-row stars &amp; bars &middot; 0/16</span>
+              <span class="cluster-chip">C2: Permutation triples &middot; 0/16</span>
+              <span class="cluster-chip">C3: 2&times;2 sum=2 &middot; 0/16</span>
+              <span class="cluster-chip cluster-win">C6: 2&times;2 sum=3 &middot; 2/16 UNLOCKED</span>
+              <span class="cluster-chip">C7: {0,1,2} 4&times;4 &middot; 0/16</span>
+              <span class="cluster-chip">C8: {0,1,2} 3&times;3 &middot; 0/16</span>
+              <span class="cluster-chip">C12: Perfect matchings \(K_{4,4}\) &middot; 0/16</span>
+              <span class="cluster-chip">C14: 3&times;3 sum=3 &middot; 0/16</span>
+            </div>
+          </div>
+
+          <!-- Case 2 -->
+          <div class="tab-panel" data-panel="case-spoilers">
+            <div class="spoiler-grid">
+              <div class="spoiler-card">
+                <div class="problem-banner problem-banner-sm">
+                  <div class="problem-label">Circular Inequality Extremal Count (Step 219)</div>
+                  <p class="problem-text">
+                    Around a circle, 100 integers are written; each is greater than the sum of the next two clockwise. Find the maximum number of positive integers.
+                    <span class="gold-tag">\(a^\star = 49\)</span>
+                  </p>
+                </div>
+                <div class="spoiler-item spoiler-bad">
+                  <span class="status-pill status-fail">w/ \(a^\star\) &middot; Answer Proxy (16/16, 0 GRPO grad)</span>
+                  <p>&ldquo;Prove that there are at least <strong>51 negative integers</strong> among the 100 written numbers...&rdquo;</p>
+                  <small>Encodes \(100 - 49 = 51\) directly into the prompt, collapsing all 16 rollouts to 49.</small>
+                </div>
+                <div class="spoiler-item spoiler-good">
+                  <span class="status-pill status-pass">FORGE (Reference-Free) &middot; Useful Subgoal (1/16 Unlocked)</span>
+                  <p>&ldquo;What constraints must be satisfied if <strong>two consecutive integers are positive</strong>?&rdquo;</p>
+                  <small>Isolates the exact structural propagation lemma while leaving the alternating case &amp; construction to the solver.</small>
+                </div>
+              </div>
+
+              <div class="spoiler-card">
+                <div class="problem-banner problem-banner-sm">
+                  <div class="problem-label">Induced Subgraphs in Acyclic Graphs (Step 219)</div>
+                  <p class="problem-text">
+                    In every acyclic graph with 2022 vertices we can choose \(k\) vertices such that each chosen vertex has at most 2 edges to chosen vertices. Find max \(k\).
+                    <span class="gold-tag">\(a^\star = 1517\)</span>
+                  </p>
+                </div>
+                <div class="spoiler-item spoiler-bad">
+                  <span class="status-pill status-fail">w/ \(a^\star\) &middot; Answer Proxy (16/16, 0 GRPO grad)</span>
+                  <p>&ldquo;Show that in any acyclic graph with \(n\) vertices, there exists a set of at least <strong>\(\lceil \frac{3}{4}n \rceil\)</strong> vertices...&rdquo;</p>
+                  <small>Hands over the exact formula \(\lceil 6066/4 \rceil = 1517\), bypassing the extremal analysis.</small>
+                </div>
+                <div class="spoiler-item spoiler-good">
+                  <span class="status-pill status-pass">FORGE (Reference-Free) &middot; Useful Subgoal (1/16 Unlocked)</span>
+                  <p>&ldquo;In a forest where every internal vertex has <strong>exactly two pendant leaves</strong>, what is the maximum number of vertices that can be chosen?&rdquo;</p>
+                  <small>Proposes a concrete extremal tree family directly from the failed prefix without leaking the bound.</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open Source Section -->
+    <section class="section section-alt" id="opensource">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">06 &middot; Open-Source Release</span>
+          <h2>Code, Models &amp; Datasets — Ready to Reproduce</h2>
+          <p class="section-desc">
+            We open-source the complete minimal FORGE training codebase (built on <code>THUDM/slime</code>), both Stage-1 and Stage-2 checkpoints, and the curated two-stage mathematical RL datasets.
+          </p>
+        </div>
+
+        <div class="resource-grid">
+          <a class="resource-card" href="https://github.com/pixas/FORGE" target="_blank" rel="noopener">
+            <div class="res-type">Code Repository</div>
+            <h3>pixas/FORGE</h3>
+            <p>Clean <code>forge/</code> algorithm package integrated with the <code>slime</code> skeleton, Stage-1/2 training scripts, and EvalScope eval launcher.</p>
+            <span class="res-link">Explore on GitHub &rarr;</span>
+          </a>
+          <a class="resource-card resource-featured" href="https://huggingface.co/pixas/FORGE-4B" target="_blank" rel="noopener">
+            <div class="res-type">Stage-2 Model (Final)</div>
+            <h3>pixas/FORGE-4B</h3>
+            <p>500-step long-horizon scaled checkpoint (<code>16K &rarr; 64K</code>). <strong>58.37%</strong> Micro Avg@32 &middot; <strong>83.33%</strong> Pass@32.</p>
+            <span class="res-link">Download on Hugging Face &rarr;</span>
+          </a>
+          <a class="resource-card" href="https://huggingface.co/pixas/FORGE-4B-Stage1" target="_blank" rel="noopener">
+            <div class="res-type">Stage-1 Model (350 steps)</div>
+            <h3>pixas/FORGE-4B-Stage1</h3>
+            <p>Controlled <code>16K &rarr; 32K</code> checkpoint matching all RL baselines. <strong>51.60%</strong> Micro Avg@32 &middot; <strong>82.69%</strong> Pass@32.</p>
+            <span class="res-link">Download on Hugging Face &rarr;</span>
+          </a>
+          <a class="resource-card" href="https://huggingface.co/datasets/pixas/FORGE-Math-RL" target="_blank" rel="noopener">
+            <div class="res-type">RL Dataset (Math)</div>
+            <h3>pixas/FORGE-Math-RL</h3>
+            <p>Sanitized <code>stage1</code> (14,809 prompts) and <code>stage2</code> (16,803 prompts) verifiable math datasets, directly ready for <code>slime</code>.</p>
+            <span class="res-link">Browse on Hugging Face &rarr;</span>
+          </a>
+        </div>
+
+        <!-- Quick Start Code Tabs -->
+        <div class="code-shell" data-tab-group="quickstart">
+          <div class="code-topbar">
+            <div class="tab-bar tab-bar-compact" role="tablist">
+              <button class="tab-btn active" role="tab" data-tab="qs-train">Reproduce Training</button>
+              <button class="tab-btn" role="tab" data-tab="qs-eval">Evaluate with EvalScope</button>
+              <button class="tab-btn" role="tab" data-tab="qs-infer">Quick Inference</button>
+            </div>
+            <button class="copy-btn" id="copyCodeBtn" type="button">Copy</button>
+          </div>
+          <pre class="code-block active" data-panel="qs-train"><code># 1. Clone FORGE and download base model + datasets
+git clone https://github.com/pixas/FORGE.git &amp;&amp; cd FORGE
+hf download Qwen/Qwen3.5-4B-Base --local-dir ./models/Qwen3.5-4B-Base
+bash scripts/download_data.sh ./data/FORGE-Math-RL
+
+# 2. Stage 1 (16K -&gt; 32K, 350 steps -&gt; FORGE-4B-Stage1)
+export HF_MODEL_DIR=./models/Qwen3.5-4B-Base
+export MEGATRON_MODEL_DIR=/path/to/Qwen3.5-4B-Base_torch_dist
+export MEGATRON_CODE_DIR=/path/to/Megatron-LM
+bash scripts/train_stage1_16k.sh
+INIT_CKPT_DIR=./outputs/forge_stage1_16k/ckpt INIT_CKPT_STEP=219 bash scripts/train_stage1_32k.sh
+
+# 3. Stage 2 (48K -&gt; 64K, 500 steps -&gt; FORGE-4B)
+INIT_CKPT_DIR=./outputs/forge_stage1_32k/ckpt INIT_CKPT_STEP=349 bash scripts/train_stage2_48k.sh
+INIT_CKPT_DIR=./outputs/forge_stage2_48k/ckpt INIT_CKPT_STEP=449 bash scripts/train_stage2_64k.sh</code></pre>
+
+          <pre class="code-block" data-panel="qs-eval"><code># 1. Serve FORGE-4B (or pixas/FORGE-4B-Stage1) via SGLang
+python3 -m sglang.launch_server \
+    --model-path pixas/FORGE-4B \
+    --port 8000 \
+    --context-length 98304
+
+# 2. Evaluate across competition &amp; Olympiad suites via EvalScope (80K budget, K=32)
+MODEL_ID=pixas/FORGE-4B API_URL=http://127.0.0.1:8000/v1 \
+    bash scripts/eval_evalscope.sh</code></pre>
+
+          <pre class="code-block" data-panel="qs-infer"><code>from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_id = "pixas/FORGE-4B"  # or "pixas/FORGE-4B-Stage1"
+tokenizer = AutoTokenizer.from_pretrained(model_id)
+model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype="auto", device_map="auto")
+
+messages = [{"role": "user", "content": "Solve step by step and put your final answer in \\boxed{}."}]
+prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+inputs = tokenizer([prompt], return_tensors="pt").to(model.device)
+out = model.generate(**inputs, max_new_tokens=32768, temperature=1.0, top_p=0.95, top_k=20, do_sample=True)
+print(tokenizer.decode(out[0][inputs.input_ids.shape[1]:], skip_special_tokens=True))</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- BibTeX Section -->
+    <section class="section" id="citation">
+      <div class="container container-narrow">
+        <div class="section-header">
+          <span class="section-kicker">07 &middot; Citation</span>
+          <h2>BibTeX</h2>
+        </div>
+        <div class="bibtex-card">
+          <div class="bibtex-head">
+            <span>If you find FORGE useful in your research, please cite our technical report:</span>
+            <button class="copy-btn" id="copyBibtexBtn" type="button">Copy BibTeX</button>
+          </div>
+          <pre class="bibtex-pre" id="bibtexText"><code>@article{jiang2026forge,
+  title   = {FORGE: Forging Obstacles into Reasoning via Guided Exploration},
+  author  = {Jiang, Shuyang and Liu, Wei and Chen, Peixian and Gu, Weibo and Sun, Xing and Lin, Qiang and Zhang, Ya and Wang, Yanfeng and Wang, Yu},
+  year    = {2026}
+}</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>FORGE</strong> &middot; Fudan University &middot; Tencent Youtu Lab &middot; Shanghai Jiao Tong University
+      </div>
+      <div class="footer-links">
+        <a href="./assets/FORGE_paper.pdf" target="_blank" rel="noopener">Paper</a>
+        <a href="https://github.com/pixas/FORGE" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://huggingface.co/pixas/FORGE-4B" target="_blank" rel="noopener">FORGE-4B</a>
+        <a href="https://huggingface.co/datasets/pixas/FORGE-Math-RL" target="_blank" rel="noopener">Dataset</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Fullscreen Lightbox for Paper Figures -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close figure preview">&times;</button>
+    <img id="lightboxImg" src="" alt="" />
+    <p id="lightboxCap"></p>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
