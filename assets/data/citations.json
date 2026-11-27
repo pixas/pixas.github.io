@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-26 04:00 UTC",
+  "updated": "2026-11-27 04:00 UTC",
   "source": "google_scholar",
   "source_label": "Google Scholar",
   "author": "Shuyang Jiang",
-  "total_citations": 599,
+  "total_citations": 602,
   "h_index": 11,
   "i10_index": 12,
   "stale": false,
@@ -35,7 +35,7 @@
     },
     "ehrr1areasoningenhancedfoundationallanguagemodelforelectronichealthrecordanalysis": {
       "title": "Ehr-r1: A reasoning-enhanced foundational language model for electronic health record analysis",
-      "num_citations": 32,
+      "num_citations": 35,
       "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:0EnyYjriUFMC",
       "source": "google_scholar"
     },
