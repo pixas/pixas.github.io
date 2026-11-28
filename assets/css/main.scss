@@ -169,6 +169,11 @@ h1:before, .anchor:before {
     background-color: #faf8ff;
 }
 
+.paper-box.paper-box--no-image .paper-box-text {
+    max-width: 100%;
+    padding-left: 0;
+}
+
 .paper-box-text .paper-title {
     font-size: 1.02rem;
     font-weight: 500;

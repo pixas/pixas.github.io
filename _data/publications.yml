@@ -94,6 +94,19 @@ highlight:
         url: "https://arxiv.org/pdf/2306.02907"
 
 others:
+  - title: "EHR-R1: A Reasoning-Enhanced Foundational Language Model for Electronic Health Record Analysis"
+    authors: "Yusheng Liao, Chaoyi Wu, Junwei Liu, <strong class='me'>Shuyang Jiang</strong>, Pengcheng Qiu, Haowen Wang, Yun Yue, Shuai Zhen, Jian Wang, Qianrui Fan, Jinjie Gu, Ya Zhang, Yanfeng Wang, Yu Wang, Weidi Xie"
+    venue: "Nature Communications"
+    year: 2026
+    tags: []
+    image: "/images/ehr_r1.png"
+    image_alt: "EHR-R1 overview: EHR analysis tasks, three-stage training pipeline, and benchmark results"
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2510.25628"
+      - label: "PDF"
+        url: "https://arxiv.org/pdf/2510.25628"
+
   - title: "ReflecTool: Towards Reflection-Aware Tool-Augmented Clinical Agents"
     authors: "Yusheng Liao, <strong class='me'>Shuyang Jiang</strong>, Yanfeng Wang, Yu Wang"
     venue: "ACL"

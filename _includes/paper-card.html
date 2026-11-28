@@ -1,7 +1,9 @@
-<div class='paper-box{% if include.paper.tags contains "Oral" %} paper-box--oral{% elsif include.paper.tags contains "Spotlight" %} paper-box--spotlight{% endif %}'>
+<div class='paper-box{% unless include.paper.image %} paper-box--no-image{% endunless %}{% if include.paper.tags contains "Oral" %} paper-box--oral{% elsif include.paper.tags contains "Spotlight" %} paper-box--spotlight{% endif %}'>
+  {% if include.paper.image %}
   <div class='paper-box-image'>
     <img src='{{ include.paper.image }}' alt='{{ include.paper.image_alt }}' width="100%" loading="lazy" decoding="async">
   </div>
+  {% endif %}
   <div class='paper-box-text'>
     <div class='paper-tags'>
       <span class='paper-venue'>{{ include.paper.venue }} {{ include.paper.year }}</span>
