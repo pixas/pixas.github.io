@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-27 04:00 UTC",
+  "updated": "2026-11-28 04:00 UTC",
   "source": "google_scholar",
   "source_label": "Google Scholar",
   "author": "Shuyang Jiang",
-  "total_citations": 602,
+  "total_citations": 604,
   "h_index": 11,
   "i10_index": 12,
   "stale": false,
@@ -47,7 +47,7 @@
     },
     "reflectooltowardsreflectionawaretoolaugmentedclinicalagents": {
       "title": "Reflectool: Towards reflection-aware tool-augmented clinical agents",
-      "num_citations": 39,
+      "num_citations": 40,
       "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:eQOLeE2rZwMC",
       "source": "google_scholar"
     },
@@ -59,7 +59,7 @@
     },
     "medstowardsmedicalslowthinkingwithselfevolvedsoftdualsidedprocesssupervision": {
       "title": "MedS: Towards Medical Slow Thinking with Self-Evolved Soft Dual-sided Process Supervision",
-      "num_citations": 52,
+      "num_citations": 53,
       "url": "https://scholar.google.com/citations?view_op=view_citation&user=slwTiOUAAAAJ&hl=en&citation_for_view=slwTiOUAAAAJ:_FxGoFyzp5QC",
       "source": "google_scholar"
     },
